@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="FigureView">
+        <attr name="figure_is_circle" format="boolean" />       <!-- true если надо нарисовать круг -->
+        <attr name="figure_corner_radius" format="dimension" /> <!-- радиус закругления углов у прямоугольника -->
+        <attr name="figure_color" format="reference" />         <!-- цвет фигуры -->
+    </declare-styleable>
+
+    <declare-styleable name="CircleAvatarImageView">
+        <attr name="avatar_border_color" format="reference" />
+        <attr name="avatar_border_size" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="CircleTextView">
+        <attr name="border_color" format="reference" />
+        <attr name="border_size" format="dimension" />
+        <attr name="circle_color" format="reference" />
+        <attr name="text_color" format="reference" />
+        <attr name="textAppearance" format="reference" />
+        <attr name="text" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="CollapsingBehavior">
+        <attr name="collapsedTarget" format="reference" />
+    </declare-styleable>
+
+</resources>

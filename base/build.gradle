@@ -1,0 +1,53 @@
+apply from: '../commonModule.gradle'
+
+dependencies {
+    api project(":domain")
+    api platform(firebase.bom)
+    api firebase.analytics
+    api firebase.messaging
+
+    api view.glide
+    api view.material
+
+    implementation test.kotest
+    implementation test.mockk
+    implementation serialization.gson
+
+    gradle.ext.androidStandard.api(
+            this,
+            [
+                    "activity-holder",
+                    "core-navigation",
+                    "navigation-observer",
+                    "core-ui",
+                    "core-mvp",
+                    "core-mvp-binding",
+                    "mvp-dialog",
+                    "mvp-widget",
+                    "easyadapter",
+                    "easyadapter-pagination",
+                    "dagger-scope",
+                    "logger",
+                    "filestorage",
+                    "animations",
+                    "app-migration",
+                    "connection",
+                    "custom-view",
+                    "datalist-base",
+                    "datalist-limit-offset",
+                    "datalist-page-count",
+                    "recycler-extension",
+                    "recycler-decorator",
+                    "recycler-decorator-easyadapter",
+                    "rx-extension",
+                    "shared-pref",
+                    "util-ktx",
+                    "rxbus",
+                    "mvi-core",
+                    "mvi-impls",
+                    "mvi-mapper",
+                    "navigation",
+                    "navigation-rx",
+            ]
+    )
+}

@@ -1,0 +1,101 @@
+<resources>
+    <string name="notification_channel_id" translatable="false">CHANNEL_ID</string>
+    <string name="notification_channel_name">SURF_PRACTICE</string>
+
+    <string name="app_name">RlRent</string>
+    <string name="server_error_message">Произошла ошибка сервера. Попробуйте позже еще раз</string>
+    <string name="server_error_not_found">Произошла ошибка, данные не найдены. Попробуйте позже еще раз</string>
+    <string name="default_http_error_message">Произошла ошибка загрузки данных, возможно, не вся информация на экране актуальна</string>
+    <string name="forbidden_error_error_message">Доступ запрещен</string>
+    <string name="no_internet_connection_error_message">Не удалось загрузить данные. Проверьте соединение с интернетом и попробуйте еще раз</string>
+    <string name="bad_response_error_message">Произошла ошибка загрузки данных на экране. Попробуйте позже еще раз</string>
+    <string name="unexpected_error_error_message">Непредвиденная ошибка</string>
+    <string name="wrong_credentials_error_message">Неверные учетные данные</string>
+    <string name="common_error_message">Произошла ошибка загрузки данных,\nпопробуйте обновить экран позже</string>
+    <string name="pagination_footer_text">Что-то пошло не так.\nПопробуйте позже</string>
+
+    <string name="state_error_title">Что-то пошло не так!</string>
+    <string name="state_error_message">Пожалуйста, повторите попытку</string>
+
+    <string name="state_error_no_internet_title">Нет соединения</string>
+    <string name="state_error_no_internet_message">Проверьте соединение\nс интернетом и обновите страницу</string>
+
+    <string name="state_error_btn">Обновить</string>
+
+    <!-- Projects -->
+    <string name="projects_hello_text">Привет,</string>
+    <string name="projects_username_text">%s</string>
+    <string name="projects_no_avatars">Команда не собрана</string>
+
+    <string name="projects_text">Проекты</string>
+
+    <!-- About app -->
+    <string name="about_app_dialog_positive_btn">Выйти</string>
+    <string name="about_app_exit_btn">@string/about_app_dialog_positive_btn</string>
+    <string name="about_app_android_label">android</string>
+    <string name="about_app_android_text">Это тестовое приложение\n реализовано %s для <![CDATA[<a href="https://surf.ru "><b>SURF</b></a>]]></string>
+    <string name="about_app_source_code_reference_btn">Ссылка на исходный код</string>
+    <string name="about_app_text">О приложении</string>
+    <string name="about_app_dialog_title">Выйти из системы?</string>
+    <string name="about_app_dialog_message">После выхода вам придется\nзаново вводить логин и пароль</string>
+    <string name="about_app_dialog_negative_btn">Отмена</string>
+
+    <string name="employees_text">Сотрудники</string>
+
+    <string name="onboarding_remind_later_btn">Напомнить позже</string>
+    <string name="onboarding_hide_btn">Скрыть</string>
+
+    <!-- Project details -->
+    <string name="project_details_title">О проекте</string>
+    <string name="crew_title">Команда проекта</string>
+    <string name="project_time_text">Время жизни проекта</string>
+    <plurals name="crew_count">
+        <item quantity="one">Всего %d участник</item>
+        <item quantity="few">Всего %d участника</item>
+        <item quantity="many">Всего %d участников</item>
+        <item quantity="other">Всего %d участников</item>
+    </plurals>
+    <plurals name="project_days_count">
+        <item quantity="one">%d день</item>
+        <item quantity="few">%d дня</item>
+        <item quantity="many">%d дней</item>
+        <item quantity="other">%d дней</item>
+    </plurals>
+
+    <!-- Project crew -->
+    <string name="project_crew_title">Команда проекта “%s“</string>
+
+    <!-- Auth -->
+    <string name="auth_title">Вход</string>
+    <string name="auth_email_tf_hint">Электронная почта</string>
+    <string name="auth_password_tf_hint">Пароль</string>
+    <string name="auth_enter_btn">Войти</string>
+    <string name="validation_err_login">Минимальное количество символов 4</string>
+    <string name="validation_empty_err">Поле не заполнено</string>
+    <string name="validation_err_password">От 6 до 256 символов</string>
+
+    <!-- Employee -->
+    <string name="employee_full_name">%s %s</string>
+
+    <!-- Profile -->
+    <string name="profile_self_info_title">Ваш профиль</string>
+    <string name="profile_other_info_title">О сотруднике</string>
+    <string name="profile_position_label">Должность</string>
+    <string name="profile_skill_label">Опыт работы</string>
+    <string name="profile_department_label">Отдел</string>
+    <string name="profile_skills_title">Навыки</string>
+    <string name="connect_btn_label">Связаться</string>
+    <string name="call_btn_label">Позвонить</string>
+    <string name="mail_btn_label">Отправить письмо</string>
+    <string name="connect_bottom_sheet_title">Связь с сотрудником</string>
+    <string name="toolbar_title_name">@string/employee_full_name</string>
+    <string name="toolbar_subtitle">%d y.o., %s</string>
+    <string name="profile_project_name">“%s“</string>
+    <plurals name="profile_months_count">
+        <item quantity="one">%d месяц</item>
+        <item quantity="few">%d месяца</item>
+        <item quantity="many">%d месяцев</item>
+        <item quantity="other">%d месяцев</item>
+    </plurals>
+
+</resources>

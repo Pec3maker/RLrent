@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="90dp">
+
+
+    <TextView
+        android:id="@+id/pagination_footer_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|top"
+        android:visibility="gone"
+        android:gravity="center"
+        android:textAppearance="@style/Text.Grey"
+        tools:visibility="visible"
+        android:text="@string/pagination_footer_text" />
+
+    <Button
+        android:id="@+id/reload_btn"
+        style="@style/Button.Framed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|bottom"
+        android:text="@string/state_error_btn"
+        android:visibility="gone"
+        tools:visibility="visible" />
+
+    <ProgressBar
+        android:id="@+id/pagination_footer_progress_bar"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_gravity="center"
+        android:indeterminate="true"
+        android:indeterminateDrawable="@drawable/gradient_progress_bar"
+        android:visibility="gone"
+        tools:visibility="visible" />
+</FrameLayout>

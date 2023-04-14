@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Сервис для именования цветов http://www.color-blindness.com/color-name-hue/ -->
+    <color name="white">#FFFFFF</color>
+    <color name="white_96">#F5FFFFFF</color>
+    <color name="black">#0D0D0D</color>
+
+    <color name="lucky_point">#252849</color>
+    <color name="lucky_point_45">#73252849</color>
+    <color name="dodger_blue">#0094FF</color>
+    <color name="dodger_blue_10">#1A0094FF</color>
+    <color name="sunglow">#FFC01F</color>
+    <color name="sunglow_10">#1AFFC01F</color>
+    <color name="lime_green">#30C150</color>
+    <color name="lime_green_10">#1A30C150</color>
+    <color name="torch_red">#FF1744</color>
+    <color name="torch_red_10">#1AFF1744</color>
+    <color name="echo_blue">#A1AEC8</color>
+    <color name="echo_blue_64">#A3A1AEC8</color>
+    <color name="slate_grey">#7C7E92</color>
+    <color name="slate_grey_12">#1F7C7E92</color>
+    <color name="lavender">#F3F7FD</color>
+
+    <color name="neon_blue">#3461FF</color>
+    <color name="orange_black">#FDA700</color>
+    <color name="emerald">#48C363</color>
+    <color name="radical_red">#FF3E64</color>
+    <color name="manatee">#909298</color>
+    <color name="manatee_20">#33909298</color>
+    <color name="suva_grey">#8B8B8B</color>
+    <color name="nero">#252525</color>
+
+    <!-- Прозрачность цвета в процентах переведенная в шестнадцатиричный вид.
+  Часто требуются для добавления оттенков цветов
+      100% — FF
+      95% — F2
+      90% — E6
+      85% — D9
+      80% — CC
+      75% — BF
+      70% — B3
+      65% — A6
+      60% — 99
+      55% — 8C
+      50% — 80
+      45% — 73
+      40% — 66
+      35% — 59
+      30% — 4D
+      25% — 40
+      20% — 33
+      15% — 26
+      10% — 1A
+      5% — 0D
+      0% — 00
+  -->
+</resources>

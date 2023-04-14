@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">@color/secondary_background</color>
+    <color name="colorPrimaryDark">@color/primary_background</color>
+    <color name="colorAccent">@color/blue</color>
+
+    <color name="main">@color/lucky_point</color>
+    <color name="blue">@color/dodger_blue</color>
+    <color name="blue_10">@color/dodger_blue_10</color>
+    <color name="orange">@color/sunglow</color>
+    <color name="orange_10">@color/sunglow_10</color>
+    <color name="green">@color/lime_green</color>
+    <color name="green_10">@color/lime_green_10</color>
+    <color name="red">@color/torch_red</color>
+    <color name="red_10">@color/torch_red_10</color>
+    <color name="grey">@color/echo_blue</color>
+    <color name="text_unactive">@color/echo_blue_64</color>
+    <color name="lines">@color/slate_grey_12</color>
+    <color name="primary_background">#F3F7FD</color>
+    <color name="secondary_background">#FFFFFF</color>
+    <color name="transparent">#00000000</color>
+</resources>

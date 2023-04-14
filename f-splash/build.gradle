@@ -1,0 +1,8 @@
+apply from:'../commonFeatureModule.gradle'
+apply from: '../commonKaptModule.gradle'
+
+dependencies {
+    implementation androidX.splash
+    implementation project(":i-initialization")
+    implementation project(":i-network")
+}
