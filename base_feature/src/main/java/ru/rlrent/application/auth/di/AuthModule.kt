@@ -3,8 +3,8 @@ package ru.rlrent.application.auth.di
 import dagger.Module
 import dagger.Provides
 import retrofit2.Retrofit
+import ru.rlrent.i_auth.AuthApi
 import ru.surfstudio.android.dagger.scope.PerApplication
-import ru.surfstudio.practice.i_auth.AuthApi
 
 @Module
 class AuthModule {

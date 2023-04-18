@@ -11,10 +11,12 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import ru.android.rlrent.i_network.BuildConfig
+import ru.rlrent.i_network.converter.gson.ResponseTypeAdapterFactory
 import ru.rlrent.i_network.converter.gson.SafeConverterFactory
 import ru.rlrent.i_network.generated.urls.ServerUrls.BASE_API_URL
 import ru.rlrent.i_network.network.BaseUrl
 import ru.rlrent.i_network.network.CallAdapterFactory
+import ru.rlrent.i_network.network.calladapter.BaseCallAdapterFactory
 import ru.surfstudio.android.dagger.scope.PerApplication
 import ru.surfstudio.android.logger.Logger
 
@@ -29,9 +31,9 @@ class NetworkModule {
     @PerApplication
     internal fun provideRetrofit(
         okHttpClient: OkHttpClient,
-        callAdapterFactory: ru.rlrent.i_network.network.calladapter.BaseCallAdapterFactory,
+        callAdapterFactory: BaseCallAdapterFactory,
         gson: Gson,
-        apiUrl: ru.rlrent.i_network.network.BaseUrl
+        apiUrl: BaseUrl
     ): Retrofit {
         return Retrofit.Builder()
             .client(okHttpClient)
@@ -46,7 +48,7 @@ class NetworkModule {
     internal fun provideGson(): Gson {
         return GsonBuilder()
             .registerTypeAdapterFactory(
-                ru.rlrent.i_network.converter.gson.ResponseTypeAdapterFactory(
+                ResponseTypeAdapterFactory(
                     SafeConverterFactory()
                 )
             )
@@ -73,7 +75,7 @@ class NetworkModule {
 
     @Provides
     @PerApplication
-    internal fun provideCallAdapterFactory(): ru.rlrent.i_network.network.calladapter.BaseCallAdapterFactory =
+    internal fun provideCallAdapterFactory(): BaseCallAdapterFactory =
         CallAdapterFactory()
 
     @Provides

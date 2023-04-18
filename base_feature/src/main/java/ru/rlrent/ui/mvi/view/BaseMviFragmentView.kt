@@ -3,8 +3,6 @@ package ru.rlrent.ui.mvi.view
 import android.os.Bundle
 import android.view.View
 import androidx.annotation.CallSuper
-import ru.rlrent.ui.insets.InsetsApi
-import ru.rlrent.ui.insets.InsetsApiBuilder
 import ru.surfstudio.android.core.mvi.event.Event
 import ru.surfstudio.android.core.mvi.event.hub.owner.SingleHubOwner
 import ru.surfstudio.android.core.mvi.impls.event.hub.ScreenEventHub
@@ -28,11 +26,8 @@ abstract class BaseMviFragmentView<S, E : Event> :
     @CallSuper
     override fun onViewCreated(view: View, savedInstanceState: Bundle?, viewRecreated: Boolean) {
         initViews()
-        initInsets().applyInsets()
         bind()
     }
-
-    open fun initInsets(): InsetsApi = InsetsApiBuilder.NO_INSETS
 
     @CallSuper
     protected open fun bind() {

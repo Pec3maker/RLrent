@@ -7,6 +7,8 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import ru.rlrent.i_auth.token.RefreshSessionInterceptor
 import ru.rlrent.i_network.network.InvalidSessionListener
+import ru.rlrent.i_network.network.cache.SimpleCacheInterceptor
+import ru.rlrent.i_network.network.etag.EtagInterceptor
 import ru.rlrent.i_network.service.ServiceInterceptor
 import ru.rlrent.i_session.SessionChangedInteractor
 import ru.rlrent.i_token.TokenStorage
@@ -34,8 +36,8 @@ class OkHttpModule {
     @PerApplication
     internal fun provideOkHttpClient(
         @Named(DI_NAME_SERVICE_INTERCEPTOR) serviceInterceptor: Interceptor,
-        cacheInterceptor: ru.rlrent.i_network.network.cache.SimpleCacheInterceptor,
-        etagInterceptor: ru.rlrent.i_network.network.etag.EtagInterceptor,
+        cacheInterceptor: SimpleCacheInterceptor,
+        etagInterceptor: EtagInterceptor,
         httpLoggingInterceptor: HttpLoggingInterceptor,
         refreshSessionInterceptor: RefreshSessionInterceptor,
     ): OkHttpClient {

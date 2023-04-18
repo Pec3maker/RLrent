@@ -1,15 +1,14 @@
 package ru.rlrent.f_main
 
 import io.reactivex.Observable
+import ru.rlrent.f_main.MainEvent.Navigation
+import ru.rlrent.i_session.SessionChangedInteractor
+import ru.rlrent.ui.mvi.navigation.base.NavigationMiddleware
+import ru.rlrent.ui.mvi.navigation.extension.replace
+import ru.rlrent.ui.navigation.routes.AuthFragmentRoute
 import ru.surfstudio.android.core.mvi.impls.ui.middleware.BaseMiddleware
 import ru.surfstudio.android.core.mvi.impls.ui.middleware.BaseMiddlewareDependency
 import ru.surfstudio.android.dagger.scope.PerScreen
-import ru.rlrent.f_main.MainEvent.Navigation
-import ru.surfstudio.practice.i_session.SessionChangedInteractor
-import ru.surfstudio.practice.ui.mvi.navigation.base.NavigationMiddleware
-import ru.surfstudio.practice.ui.mvi.navigation.extension.replace
-import ru.surfstudio.practice.ui.navigation.routes.AuthFragmentRoute
-import ru.surfstudio.practice.ui.navigation.routes.MainTabRoute
 import javax.inject.Inject
 
 @PerScreen
@@ -29,7 +28,7 @@ internal class MainMiddleware @Inject constructor(
 
     private fun navigate(): Navigation {
         return if (sessionChangedInteractor.isLoggedIn) {
-            Navigation().replace(MainTabRoute())
+            Navigation().replace(AuthFragmentRoute()) //todo change screen
         } else {
             Navigation().replace(AuthFragmentRoute())
         }

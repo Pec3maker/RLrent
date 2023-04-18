@@ -3,9 +3,9 @@ package ru.rlrent.application.migration.di
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Build
-import ru.surfstudio.practice.base.intialization.migration.AppMigrationStorageImpl
 import dagger.Module
 import dagger.Provides
+import ru.rlrent.base.intialization.migration.AppMigrationStorageImpl
 import ru.surfstudio.android.app.migration.AppLaunchConfigurationStorage
 import ru.surfstudio.android.app.migration.AppMigrationManager
 import ru.surfstudio.android.dagger.scope.PerApplication
@@ -21,7 +21,7 @@ class MigrationModule {
     @Provides
     @PerApplication
     internal fun provideAppLaunchConfigurationStorage(
-            @Named(NO_BACKUP_SHARED_PREF) sharedPreferences: SharedPreferences
+        @Named(NO_BACKUP_SHARED_PREF) sharedPreferences: SharedPreferences
     ): AppLaunchConfigurationStorage {
         return AppLaunchConfigurationStorage(sharedPreferences)
     }
@@ -29,13 +29,13 @@ class MigrationModule {
     @Provides
     @PerApplication
     internal fun provideAppMigrationManager(
-            appLaunchConfigurationStorage: AppLaunchConfigurationStorage,
-            context: Context
+        appLaunchConfigurationStorage: AppLaunchConfigurationStorage,
+        context: Context
     ): AppMigrationManager {
         return AppMigrationManager(
-                AppMigrationStorageImpl(),
-                appLaunchConfigurationStorage,
-                getVersionCode(context)
+            AppMigrationStorageImpl(),
+            appLaunchConfigurationStorage,
+            getVersionCode(context)
         )
     }
 

@@ -1,5 +1,8 @@
 package ru.rlrent.ui.mvi.navigation.extension
 
+import ru.rlrent.ui.mvi.navigation.builder.NavigationEventBuilder
+import ru.rlrent.ui.mvi.navigation.event.NavCommandsComposition
+import ru.rlrent.ui.mvi.navigation.event.NavCommandsEvent
 import ru.surfstudio.android.navigation.animation.Animations
 import ru.surfstudio.android.navigation.animation.DefaultAnimations
 import ru.surfstudio.android.navigation.animation.resource.NoResourceAnimations
@@ -18,9 +21,6 @@ import ru.surfstudio.android.navigation.route.BaseRoute
 import ru.surfstudio.android.navigation.route.activity.ActivityRoute
 import ru.surfstudio.android.navigation.route.dialog.DialogRoute
 import ru.surfstudio.android.navigation.route.fragment.FragmentRoute
-import ru.surfstudio.practice.ui.mvi.navigation.builder.NavigationEventBuilder
-import ru.surfstudio.practice.ui.mvi.navigation.event.NavCommandsComposition
-import ru.surfstudio.practice.ui.mvi.navigation.event.NavCommandsEvent
 import java.io.Serializable
 
 /**
@@ -32,9 +32,9 @@ fun <T : NavCommandsComposition> T.builder() = NavigationEventBuilder(this)
  * Закрытие активити
  */
 fun <T : NavCommandsComposition> NavigationEventBuilder<T>.finish(): NavigationEventBuilder<T> =
-        add(
-                Finish()
-        )
+    add(
+        Finish()
+    )
 
 /**
  * Эмит результата работы экрана
@@ -45,7 +45,7 @@ fun <N, T, R> NavigationEventBuilder<N>.emitResult(route: R, result: T): Navigat
               R : BaseRoute<*>,
               R : ResultRoute<T> {
     return add(
-            EmitScreenResult(route, result)
+        EmitScreenResult(route, result)
     )
 }
 
@@ -78,9 +78,9 @@ fun <T : NavCommandsComposition> T.finish(): T {
  * Закрытие таска активити
  */
 fun <T : NavCommandsComposition> NavigationEventBuilder<T>.finishAffinity(): NavigationEventBuilder<T> =
-        add(
-                FinishAffinity()
-        )
+    add(
+        FinishAffinity()
+    )
 
 /** см [NavigationEventBuilder.finishAffinity] */
 fun <T : NavCommandsComposition> T.finishAffinity(): T {
@@ -91,14 +91,14 @@ fun <T : NavCommandsComposition> T.finishAffinity(): T {
  * Открытие активити
  */
 fun <T : NavCommandsComposition> NavigationEventBuilder<T>.start(route: ActivityRoute): NavigationEventBuilder<T> =
-        add(
-                Start(route)
-        )
+    add(
+        Start(route)
+    )
 
 /** см [NavigationEventBuilder.start] */
 fun <T : NavCommandsComposition> T.start(
-        route: ActivityRoute,
-        animations: Animations = DefaultAnimations.activity
+    route: ActivityRoute,
+    animations: Animations = DefaultAnimations.activity
 ): T {
     return createSingleCommandComposition(Start(route, animations))
 }
@@ -107,14 +107,14 @@ fun <T : NavCommandsComposition> T.start(
  * Закрытие текущей Activity и открытие [route].
  */
 fun <T : NavCommandsComposition> NavigationEventBuilder<T>.replace(route: ActivityRoute): NavigationEventBuilder<T> =
-        add(
-                ru.surfstudio.android.navigation.command.activity.Replace(route)
-        )
+    add(
+        ru.surfstudio.android.navigation.command.activity.Replace(route)
+    )
 
 /** см [NavigationEventBuilder.replace] */
 fun <T : NavCommandsComposition> T.replace(route: ActivityRoute): T {
     return createSingleCommandComposition(
-            ru.surfstudio.android.navigation.command.activity.Replace(route)
+        ru.surfstudio.android.navigation.command.activity.Replace(route)
     )
 }
 
@@ -122,19 +122,19 @@ fun <T : NavCommandsComposition> T.replace(route: ActivityRoute): T {
  * Замена текущего фрагмента в стеке с сохранением его в бекстек.
  */
 fun <T : NavCommandsComposition> NavigationEventBuilder<T>.replace(
-        route: FragmentRoute,
-        animations: Animations = DefaultAnimations.fragment,
-        sourceTag: String = ""
+    route: FragmentRoute,
+    animations: Animations = DefaultAnimations.fragment,
+    sourceTag: String = ""
 ): NavigationEventBuilder<T> =
-        add(
-                Replace(route, animations, sourceTag)
-        )
+    add(
+        Replace(route, animations, sourceTag)
+    )
 
 /** см [NavigationEventBuilder.replace] */
 fun <T : NavCommandsComposition> T.replace(
-        route: FragmentRoute,
-        animations: Animations = DefaultAnimations.fragment,
-        sourceTag: String = ""
+    route: FragmentRoute,
+    animations: Animations = DefaultAnimations.fragment,
+    sourceTag: String = ""
 ): T = createSingleCommandComposition(Replace(route, animations, sourceTag))
 
 /**
@@ -143,57 +143,57 @@ fun <T : NavCommandsComposition> T.replace(
  * Вызов этой команды эквивалентен вызову RemoveLast + Add за одну операцию.
  */
 fun <T : NavCommandsComposition> NavigationEventBuilder<T>.replaceHard(
-        route: FragmentRoute,
-        animations: Animations = DefaultAnimations.fragment,
-        sourceTag: String = ""
+    route: FragmentRoute,
+    animations: Animations = DefaultAnimations.fragment,
+    sourceTag: String = ""
 ): NavigationEventBuilder<T> =
-        add(
-                ReplaceHard(route, animations, sourceTag)
-        )
+    add(
+        ReplaceHard(route, animations, sourceTag)
+    )
 
 /** см [NavigationEventBuilder.replaceHard] */
 fun <T : NavCommandsComposition> T.replaceHard(
-        route: FragmentRoute,
-        animations: Animations = DefaultAnimations.fragment,
-        sourceTag: String = ""
+    route: FragmentRoute,
+    animations: Animations = DefaultAnimations.fragment,
+    sourceTag: String = ""
 ): T = createSingleCommandComposition(ReplaceHard(route, animations, sourceTag))
 
 /**
  * Добавление фрагмента в стек поверх текущего.
  */
 fun <T : NavCommandsComposition> NavigationEventBuilder<T>.add(
-        route: FragmentRoute,
-        animations: Animations = DefaultAnimations.fragment,
-        sourceTag: String = ""
+    route: FragmentRoute,
+    animations: Animations = DefaultAnimations.fragment,
+    sourceTag: String = ""
 ): NavigationEventBuilder<T> =
-        add(
-                Add(route, animations, sourceTag)
-        )
+    add(
+        Add(route, animations, sourceTag)
+    )
 
 /** см [NavigationEventBuilder.add] */
 fun <T : NavCommandsComposition> T.add(
-        route: FragmentRoute,
-        animations: Animations = DefaultAnimations.fragment,
-        sourceTag: String = ""
+    route: FragmentRoute,
+    animations: Animations = DefaultAnimations.fragment,
+    sourceTag: String = ""
 ): T = createSingleCommandComposition(Add(route, animations, sourceTag))
 
 /**
  * Удаление фрагмента из стека
  */
 fun <T : NavCommandsComposition> NavigationEventBuilder<T>.remove(
-        route: FragmentRoute,
-        animations: Animations = DefaultAnimations.fragment,
-        sourceTag: String = ""
+    route: FragmentRoute,
+    animations: Animations = DefaultAnimations.fragment,
+    sourceTag: String = ""
 ): NavigationEventBuilder<T> =
-        add(
-                Remove(route, animations, sourceTag)
-        )
+    add(
+        Remove(route, animations, sourceTag)
+    )
 
 /** см [NavigationEventBuilder.remove] */
 fun <T : NavCommandsComposition> T.remove(
-        route: FragmentRoute,
-        animations: Animations = DefaultAnimations.fragment,
-        sourceTag: String = ""
+    route: FragmentRoute,
+    animations: Animations = DefaultAnimations.fragment,
+    sourceTag: String = ""
 ): T = createSingleCommandComposition(Remove(route, animations, sourceTag))
 
 /**
@@ -203,17 +203,17 @@ fun <T : NavCommandsComposition> T.remove(
  * из таска TabFragmentNavigator, или обычного FragmentNavigator
  */
 fun <T : NavCommandsComposition> NavigationEventBuilder<T>.removeLast(
-        animations: Animations = NoResourceAnimations,
-        sourceTag: String = ""
+    animations: Animations = NoResourceAnimations,
+    sourceTag: String = ""
 ): NavigationEventBuilder<T> =
-        add(
-                RemoveLast(animations, sourceTag)
-        )
+    add(
+        RemoveLast(animations, sourceTag)
+    )
 
 /** см [NavigationEventBuilder.removeLast] */
 fun <T : NavCommandsComposition> T.removeLast(
-        animations: Animations = NoResourceAnimations,
-        sourceTag: String = ""
+    animations: Animations = NoResourceAnimations,
+    sourceTag: String = ""
 ): T = createSingleCommandComposition(RemoveLast(animations, sourceTag))
 
 /**
@@ -223,19 +223,19 @@ fun <T : NavCommandsComposition> T.removeLast(
  * из таска TabFragmentNavigator, или обычного FragmentNavigator
  */
 fun <T : NavCommandsComposition> NavigationEventBuilder<T>.removeAll(
-        animations: Animations = NoResourceAnimations,
-        sourceTag: String = "",
-        shouldRemoveLast: Boolean = false
+    animations: Animations = NoResourceAnimations,
+    sourceTag: String = "",
+    shouldRemoveLast: Boolean = false
 ): NavigationEventBuilder<T> =
-        add(
-                RemoveAll(animations, sourceTag, shouldRemoveLast)
-        )
+    add(
+        RemoveAll(animations, sourceTag, shouldRemoveLast)
+    )
 
 /** см [NavigationEventBuilder.removeAll] */
 fun <T : NavCommandsComposition> T.removeAll(
-        animations: Animations = NoResourceAnimations,
-        sourceTag: String = "",
-        shouldRemoveLast: Boolean = false
+    animations: Animations = NoResourceAnimations,
+    sourceTag: String = "",
+    shouldRemoveLast: Boolean = false
 ): T = createSingleCommandComposition(RemoveAll(animations, sourceTag, shouldRemoveLast))
 
 /**
@@ -244,28 +244,28 @@ fun <T : NavCommandsComposition> T.removeAll(
  * @param isInclusive следует ли удалять переданный в параметре route
  */
 fun <T : NavCommandsComposition> NavigationEventBuilder<T>.removeUntil(
-        route: FragmentRoute,
-        animations: Animations = NoResourceAnimations,
-        sourceTag: String = "",
-        isInclusive: Boolean
+    route: FragmentRoute,
+    animations: Animations = NoResourceAnimations,
+    sourceTag: String = "",
+    isInclusive: Boolean
 ): NavigationEventBuilder<T> =
-        add(
-                RemoveUntil(route, animations, sourceTag, isInclusive)
-        )
+    add(
+        RemoveUntil(route, animations, sourceTag, isInclusive)
+    )
 
 /** см [NavigationEventBuilder.removeUntil] */
 fun <T : NavCommandsComposition> T.removeUntil(
-        route: FragmentRoute,
-        animations: Animations = NoResourceAnimations,
-        sourceTag: String = "",
-        isInclusive: Boolean
+    route: FragmentRoute,
+    animations: Animations = NoResourceAnimations,
+    sourceTag: String = "",
+    isInclusive: Boolean
 ): T = createSingleCommandComposition(RemoveUntil(route, animations, sourceTag, isInclusive))
 
 /**
  * Показ диалога
  */
 fun <T : NavCommandsComposition> NavigationEventBuilder<T>.show(
-        route: DialogRoute
+    route: DialogRoute
 ): NavigationEventBuilder<T> = add(Show(route))
 
 /** см [NavigationEventBuilder.show] */
@@ -277,7 +277,7 @@ fun <T : NavCommandsComposition> T.show(route: DialogRoute): T {
  * Закрытие диалога
  */
 fun <T : NavCommandsComposition> NavigationEventBuilder<T>.dismiss(
-        route: DialogRoute
+    route: DialogRoute
 ): NavigationEventBuilder<T> = add(Dismiss(route))
 
 /** см [NavigationEventBuilder.dismiss] */

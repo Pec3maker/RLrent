@@ -17,10 +17,10 @@ package ru.rlrent.i_network.network;
 
 import io.reactivex.Observable;
 import io.reactivex.Single;
+import ru.rlrent.i_network.network.error.NotModifiedException;
 import ru.surfstudio.android.connection.ConnectionProvider;
 import ru.surfstudio.android.logger.Logger;
 import ru.surfstudio.android.rx.extension.FunctionSafe;
-import ru.rlrent.i_network.network.error.NotModifiedException;
 
 /**
  * Базовый класс репозитория

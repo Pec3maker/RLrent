@@ -16,9 +16,7 @@ android {
         versionCode app.versionCode
         versionName app.versionName
 
-        //setProperty("archivesBaseName", "$applicationName-$versionName-($versionCode)") //todo uncomment for real app
-
-        testBuildType 'debug' //todo replace to 'qa' for real app
+        testBuildType 'debug'
     }
     packagingOptions {
         pickFirst 'META-INF/LICENSE.md'

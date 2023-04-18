@@ -3,6 +3,10 @@ package ru.rlrent.ui.screen_modules
 import android.content.Context
 import dagger.Module
 import dagger.Provides
+import ru.android.rlrent.base_feature.BuildConfig
+import ru.rlrent.ui.error.ErrorHandlerModule
+import ru.rlrent.v_message_controller_top.IconMessageController
+import ru.rlrent.v_message_controller_top.TopSnackIconMessageController
 import ru.surfstudio.android.core.mvp.scope.ActivityViewPersistentScope
 import ru.surfstudio.android.core.ui.event.ScreenEventDelegateManager
 import ru.surfstudio.android.core.ui.navigation.activity.navigator.ActivityNavigator
@@ -13,18 +17,12 @@ import ru.surfstudio.android.core.ui.scope.ActivityPersistentScope
 import ru.surfstudio.android.core.ui.scope.ScreenPersistentScope
 import ru.surfstudio.android.core.ui.state.ScreenState
 import ru.surfstudio.android.dagger.scope.PerScreen
-import ru.surfstudio.android.message.DefaultMessageController
-import ru.surfstudio.android.message.MessageController
 import ru.surfstudio.android.mvp.dialog.navigation.navigator.DialogNavigator
 import ru.surfstudio.android.mvp.dialog.navigation.navigator.DialogNavigatorForActivity
-import ru.rlrent.android.template.base_feature.BuildConfig
-import ru.surfstudio.practice.ui.error.ErrorHandlerModule
-import ru.surfstudio.practice.v_message_controller_top.IconMessageController
-import ru.surfstudio.practice.v_message_controller_top.TopSnackIconMessageController
 
 @Module(includes = [ErrorHandlerModule::class])
 class ActivityScreenModule(
-        private val activityViewPersistentScope: ActivityViewPersistentScope
+    private val activityViewPersistentScope: ActivityViewPersistentScope
 ) : ScreenModule() {
 
     @Provides
@@ -42,7 +40,7 @@ class ActivityScreenModule(
     @Provides
     @PerScreen
     internal fun provideEventDelegateManagerProvider(
-            persistentScope: ScreenPersistentScope
+        persistentScope: ScreenPersistentScope
     ): ScreenEventDelegateManager {
         return persistentScope.screenEventDelegateManager
     }
@@ -50,16 +48,16 @@ class ActivityScreenModule(
     @Provides
     @PerScreen
     internal fun provideActivityNavigator(
-            activityProvider: ActivityProvider,
-            eventDelegateManager: ScreenEventDelegateManager,
-            splitFeatureInstaller: SplitFeatureInstaller,
-            isSplitFeatureModeOn: Boolean
+        activityProvider: ActivityProvider,
+        eventDelegateManager: ScreenEventDelegateManager,
+        splitFeatureInstaller: SplitFeatureInstaller,
+        isSplitFeatureModeOn: Boolean
     ): ActivityNavigator {
         return ActivityNavigatorForActivity(
-                activityProvider,
-                eventDelegateManager,
-                splitFeatureInstaller,
-                isSplitFeatureModeOn
+            activityProvider,
+            eventDelegateManager,
+            splitFeatureInstaller,
+            isSplitFeatureModeOn
         )
     }
 
@@ -72,13 +70,7 @@ class ActivityScreenModule(
     @Provides
     @PerScreen
     internal fun provideIsSplitFeatureModeOn(): Boolean {
-        return !ru.rlrent.android.template.base_feature.BuildConfig.DEBUG
-    }
-
-    @Provides
-    @PerScreen
-    internal fun provideMessageController(activityProvider: ActivityProvider): MessageController {
-        return DefaultMessageController(activityProvider)
+        return !BuildConfig.DEBUG
     }
 
     @Provides

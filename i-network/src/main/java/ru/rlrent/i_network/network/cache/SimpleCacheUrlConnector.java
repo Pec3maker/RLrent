@@ -15,10 +15,10 @@
  */
 package ru.rlrent.i_network.network.cache;
 
+import android.text.TextUtils;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-
-import android.text.TextUtils;
 
 import com.annimon.stream.Stream;
 
@@ -28,7 +28,6 @@ import java.util.Collections;
 import java.util.List;
 
 import okhttp3.HttpUrl;
-import ru.rlrent.i_network.network.BaseUrl;
 import ru.rlrent.i_network.network.BaseUrl;
 
 /**

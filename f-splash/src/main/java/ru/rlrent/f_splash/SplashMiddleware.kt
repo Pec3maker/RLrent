@@ -2,16 +2,16 @@ package ru.rlrent.f_splash
 
 import io.reactivex.Completable
 import io.reactivex.Observable
+import ru.rlrent.f_splash.SplashEvent.Navigation
+import ru.rlrent.i_initialization.InitializeAppInteractor
+import ru.rlrent.ui.mvi.navigation.base.NavigationMiddleware
+import ru.rlrent.ui.mvi.navigation.extension.replace
+import ru.rlrent.ui.navigation.routes.MainActivityRoute
 import ru.surfstudio.android.core.mvi.impls.ui.middleware.BaseMiddleware
 import ru.surfstudio.android.core.mvi.impls.ui.middleware.BaseMiddlewareDependency
 import ru.surfstudio.android.dagger.scope.PerScreen
 import ru.surfstudio.android.utilktx.ktx.text.EMPTY_STRING
 import ru.surfstudio.android.utilktx.util.SdkUtils
-import ru.surfstudio.practice.f_splash.SplashEvent.Navigation
-import ru.surfstudio.practice.i_initialization.InitializeAppInteractor
-import ru.surfstudio.practice.ui.mvi.navigation.base.NavigationMiddleware
-import ru.surfstudio.practice.ui.mvi.navigation.extension.replace
-import ru.surfstudio.practice.ui.navigation.routes.MainActivityRoute
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 

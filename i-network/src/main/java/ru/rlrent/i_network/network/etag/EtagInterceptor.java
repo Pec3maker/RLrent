@@ -25,10 +25,6 @@ import okhttp3.Response;
 import ru.rlrent.i_network.network.BaseServerConstants;
 import ru.rlrent.i_network.network.etag.storage.EtagStorage;
 import ru.surfstudio.android.logger.Logger;
-import ru.rlrent.i_network.network.etag.storage.EtagStorage;
-
-import static ru.rlrent.i_network.network.BaseServerConstants.HEADER_QUERY_MODE;
-import static ru.rlrent.i_network.network.BaseServerConstants.QUERY_MODE_ONLY_IF_CHANGED;
 
 /**
  * добавляет etag в header запроса и запоминает etag из ответа. Etag получают и сохраняют с помощью

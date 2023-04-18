@@ -5,9 +5,9 @@ import ru.surfstudio.android.navigation.route.activity.ActivityRoute
 /**
  * Маршрут сплеша
  */
-class SplashRoute() : ActivityRoute() {
+class SplashRoute : ActivityRoute() {
 
     override fun getScreenClassPath(): String {
-        return "ru.surfstudio.practice.f_splash.SplashActivityView"
+        return "ru.android.rlrent.f_splash.SplashActivityView"
     }
 }

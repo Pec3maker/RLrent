@@ -20,7 +20,7 @@ internal class MainScreenStateHolder @Inject constructor(
  */
 @PerScreen
 internal class MainReducer @Inject constructor(
-        dependency: BaseReactorDependency
+    dependency: BaseReactorDependency
 ) : BaseReducer<MainEvent, MainState>(dependency) {
 
     override fun reduce(state: MainState, event: MainEvent): MainState {

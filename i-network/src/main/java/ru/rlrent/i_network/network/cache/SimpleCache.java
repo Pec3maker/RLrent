@@ -16,9 +16,10 @@
 package ru.rlrent.i_network.network.cache;
 
 
+import androidx.annotation.Nullable;
+
 import org.jetbrains.annotations.NotNull;
 
-import androidx.annotation.Nullable;
 import ru.surfstudio.android.filestorage.encryptor.Encryptor;
 import ru.surfstudio.android.filestorage.naming.NamingProcessor;
 import ru.surfstudio.android.filestorage.naming.Sha256NamingProcessor;
@@ -60,6 +61,7 @@ public class SimpleCache extends BaseTextFileStorage {
                         : sha256NamingProcessor,
                 encryptor);
     }
+
     private static class SingleFileNamingProcessor implements NamingProcessor {
         private String singleFileName;
 

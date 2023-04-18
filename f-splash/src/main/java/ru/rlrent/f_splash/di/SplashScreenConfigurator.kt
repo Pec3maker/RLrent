@@ -5,6 +5,11 @@ import android.content.Intent
 import dagger.Component
 import dagger.Module
 import dagger.Provides
+import ru.rlrent.f_splash.*
+import ru.rlrent.ui.activity.di.ActivityComponent
+import ru.rlrent.ui.activity.di.ActivityScreenConfigurator
+import ru.rlrent.ui.screen_modules.ActivityScreenModule
+import ru.rlrent.ui.screen_modules.CustomScreenModule
 import ru.surfstudio.android.core.mvi.impls.event.hub.ScreenEventHub
 import ru.surfstudio.android.core.mvi.impls.event.hub.dependency.ScreenEventHubDependency
 import ru.surfstudio.android.core.mvi.impls.ui.binder.ScreenBinder
@@ -12,11 +17,6 @@ import ru.surfstudio.android.core.mvi.impls.ui.binder.ScreenBinderDependency
 import ru.surfstudio.android.core.mvp.configurator.BindableScreenComponent
 import ru.surfstudio.android.core.mvp.configurator.ScreenComponent
 import ru.surfstudio.android.dagger.scope.PerScreen
-import ru.surfstudio.practice.f_splash.*
-import ru.surfstudio.practice.ui.activity.di.ActivityComponent
-import ru.surfstudio.practice.ui.activity.di.ActivityScreenConfigurator
-import ru.surfstudio.practice.ui.screen_modules.ActivityScreenModule
-import ru.surfstudio.practice.ui.screen_modules.CustomScreenModule
 
 /**
  * Конфигуратор стартового сплеш-экрана [SplashActivityView]
@@ -26,31 +26,30 @@ class SplashScreenConfigurator(intent: Intent) : ActivityScreenConfigurator(inte
 
     @PerScreen
     @Component(
-            dependencies = [ActivityComponent::class],
-            modules = [ActivityScreenModule::class, SplashScreenModule::class]
+        dependencies = [ActivityComponent::class],
+        modules = [ActivityScreenModule::class, SplashScreenModule::class]
     )
     internal interface SplashScreenComponent : BindableScreenComponent<SplashActivityView>
 
     @Module
-    internal class SplashScreenModule(route: SplashRoute) :
-            CustomScreenModule<SplashRoute>(route) {
+    internal class SplashScreenModule(route: SplashRoute) : CustomScreenModule<SplashRoute>(route) {
 
         @Provides
         @PerScreen
         fun provideEventHub(screenEventHubDependency: ScreenEventHubDependency): ScreenEventHub<SplashEvent> =
-                ScreenEventHub(
-                        screenEventHubDependency,
-                        SplashEvent::Lifecycle
-                )
+            ScreenEventHub(
+                screenEventHubDependency,
+                SplashEvent::Lifecycle
+            )
 
         @Provides
         @PerScreen
         fun provideBinder(
-                screenBinderDependency: ScreenBinderDependency,
-                eventHub: ScreenEventHub<SplashEvent>,
-                middleware: SplashMiddleware,
-                stateHolder: SplashScreenStateHolder,
-                reducer: SplashReducer
+            screenBinderDependency: ScreenBinderDependency,
+            eventHub: ScreenEventHub<SplashEvent>,
+            middleware: SplashMiddleware,
+            stateHolder: SplashScreenStateHolder,
+            reducer: SplashReducer
         ): Any = ScreenBinder(screenBinderDependency).apply {
             bind(eventHub, middleware, stateHolder, reducer)
         }
@@ -58,14 +57,14 @@ class SplashScreenConfigurator(intent: Intent) : ActivityScreenConfigurator(inte
 
     @Suppress("DEPRECATION")
     override fun createScreenComponent(
-            parentComponent: ActivityComponent,
-            activityScreenModule: ActivityScreenModule,
-            intent: Intent
+        parentComponent: ActivityComponent,
+        activityScreenModule: ActivityScreenModule,
+        intent: Intent
     ): ScreenComponent<*> {
-        return ru.rlrent.practice.f_splash.di.DaggerSplashScreenConfigurator_SplashScreenComponent.builder()
-                .activityComponent(parentComponent)
-                .activityScreenModule(activityScreenModule)
-                .splashScreenModule(SplashScreenModule(SplashRoute()))
-                .build()
+        return DaggerSplashScreenConfigurator_SplashScreenComponent.builder()
+            .activityComponent(parentComponent)
+            .activityScreenModule(activityScreenModule)
+            .splashScreenModule(SplashScreenModule(SplashRoute()))
+            .build()
     }
 }

@@ -1,18 +1,19 @@
 package ru.rlrent.f_main
 
+import ru.android.rlrent.f_main.R
+import ru.android.rlrent.f_main.databinding.ActivityMainBinding
+import ru.rlrent.f_main.di.MainScreenConfigurator
+import ru.rlrent.ui.mvi.view.BaseMviActivityView
 import ru.surfstudio.android.core.mvi.impls.event.hub.ScreenEventHub
 import ru.surfstudio.android.core.ui.view_binding.viewBinding
 import ru.surfstudio.android.navigation.provider.container.FragmentNavigationContainer
-import ru.surfstudio.android.template.f_main.R
-import ru.surfstudio.android.template.f_main.databinding.ActivityMainBinding
-import ru.rlrent.f_main.di.MainScreenConfigurator
-import ru.surfstudio.practice.ui.mvi.view.BaseMviActivityView
 import javax.inject.Inject
 
 /**
  * Вью главного экрана
  */
-internal class MainActivityView : BaseMviActivityView<MainState, MainEvent>(), FragmentNavigationContainer {
+internal class MainActivityView : BaseMviActivityView<MainState, MainEvent>(),
+    FragmentNavigationContainer {
 
     @Inject
     override lateinit var hub: ScreenEventHub<MainEvent>

@@ -22,12 +22,11 @@ import guru.nidi.graphviz.attribute.Style
 
 plugins.apply(DependencyGraphGeneratorPlugin)
 
-//TODO заменить template на название проекта
 def generator = new Generator(
-        "template", //суффикс для Gradle Task ("generateDependencyGraphTemplate")
+        "RlRent", //суффикс для Gradle Task ("generateDependencyGraphTemplate")
         { dependency ->
             //Префикс группы модулей проекта. Для проекта sample-android это будет sample-android
-            dependency.getModuleGroup().startsWith("template")
+            dependency.getModuleGroup().startsWith("RlRent")
         },
         { dependency ->
             true //включение транзитивных зависимостей
@@ -36,7 +35,7 @@ def generator = new Generator(
             //Имя ноды. Содержит префикс группы и имя модуля без дефисов.
             def nodeName = node.name().toString()
             //Вырезаем префикс группы из имени ноды. Для проекта sample-android префикс будет sampleandroid (убираем дефисы)
-            def moduleName = nodeName.replace("template", "") //
+            def moduleName = nodeName.replace("RlRent", "") //
             def color = ""
             if (moduleName.startsWith("i")) { //i-модуль
                 color = "#88AAFF"
@@ -52,5 +51,5 @@ def generator = new Generator(
 )
 
 dependencyGraphGenerator {
-    generators = [Generator.ALL, generator ]
+    generators = [Generator.ALL, generator]
 }

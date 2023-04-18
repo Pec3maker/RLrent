@@ -4,11 +4,11 @@ import android.os.Bundle
 import androidx.annotation.ColorRes
 import androidx.annotation.StringRes
 import androidx.fragment.app.DialogFragment
+import ru.android.rlrent.base_feature.R
+import ru.rlrent.ui.dialog.base.BaseDialogRoute
 import ru.surfstudio.android.core.mvi.impls.ui.dialog.standard.EMPTY_RES
 import ru.surfstudio.android.core.ui.navigation.Route
-import ru.surfstudio.android.template.base_feature.R
 import ru.surfstudio.android.utilktx.ktx.text.EMPTY_STRING
-import ru.surfstudio.practice.ui.dialog.base.BaseDialogRoute
 
 /**
  * Роут для открытия диалога возвращающего [SimpleResult]

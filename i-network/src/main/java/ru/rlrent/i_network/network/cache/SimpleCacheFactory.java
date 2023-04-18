@@ -55,10 +55,10 @@ public class SimpleCacheFactory {
         SimpleCache cache = caches.get(simpleCacheInfo);
         if (cache == null) {
             cache = new SimpleCache(
-                            cacheDir,
-                            simpleCacheInfo.getCacheName(),
-                            simpleCacheInfo.getMaxSize(),
-                            encryptor);
+                    cacheDir,
+                    simpleCacheInfo.getCacheName(),
+                    simpleCacheInfo.getMaxSize(),
+                    encryptor);
             caches.put(simpleCacheInfo, cache);
         }
         return cache;

@@ -11,11 +11,11 @@ import java.util.concurrent.TimeUnit
  * Конвертирует Event в debounced Event
  */
 fun <E : Event, D : Event> Observable<E>.debounceEvent(
-        debounceMillis: Long,
-        debouncedEventFactory: EventFactory<E, D>
+    debounceMillis: Long,
+    debouncedEventFactory: EventFactory<E, D>
 ): Observable<D> {
     return debounce(debounceMillis, TimeUnit.MILLISECONDS, AndroidSchedulers.mainThread())
-            .map { e -> debouncedEventFactory(e) }
+        .map { e -> debouncedEventFactory(e) }
 }
 
 /**
@@ -52,7 +52,10 @@ fun <T, E : RequestEvent<T>> Observable<E>.delayLoadingRequest(delayMillis: Long
 /**
  * Откладывает эмит [RequestEvent]
  */
-private fun <T, E : RequestEvent<T>> Observable<E>.delayRequestInternal(delayMillis: Long, condition: (E) -> Boolean): Observable<out E> {
+private fun <T, E : RequestEvent<T>> Observable<E>.delayRequestInternal(
+    delayMillis: Long,
+    condition: (E) -> Boolean
+): Observable<out E> {
     return this.compose { upStream ->
         upStream.flatMap { upStreamEvent ->
             if (condition(upStreamEvent)) {

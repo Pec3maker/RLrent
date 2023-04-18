@@ -1,9 +1,9 @@
 package ru.rlrent.ui.dialog.base
 
+import ru.rlrent.application.app.di.AppComponent
+import ru.rlrent.application.app.di.AppInjector
 import ru.surfstudio.android.navigation.executor.NavigationCommandExecutor
 import ru.surfstudio.android.navigation.observer.command.EmitScreenResult
-import ru.surfstudio.practice.application.app.di.AppComponent
-import ru.surfstudio.practice.application.app.di.AppInjector
 
 /**
  * Базовый простой диалог с поддержкой возвращения результата и навигации.

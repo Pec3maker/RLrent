@@ -58,10 +58,9 @@
 -dontwarn afu.org.checkerframework.checker.regex.**
 -dontwarn afu.org.checkerframework.checker.units.**
 
-#TODO Поменять пути в соответствии с реальным расположением файлов.
 #network
--keep class * implements ru.surfstudio.standard.i_network.network.Transformable
--keep class * implements ru.surfstudio.standard.i_network.network.response.BaseResponse
+-keep class * implements ru.android.rlrent.i_network.network.Transformable
+-keep class * implements ru.android.rlrent.i_network.network.response.BaseResponse
 -keepclassmembers,allowobfuscation class * { @com.google.gson.annotations.SerializedName <fields>; }
 
 #glide
@@ -80,9 +79,9 @@
 -dontwarn kotlin.reflect.jvm.internal.**
 
 #android standard
--keep class ru.surfstudio.android.rx.extension.ConsumerSafe { *; }
--keep class ru.surfstudio.android.rx.extension.ActionSafe { *; }
+-keep class ru.android.rlrent.rx.extension.ConsumerSafe { *; }
+-keep class ru.android.rlrent.rx.extension.ActionSafe { *; }
 
 #cross feature fragments
--keep interface ru.surfstudio.android.core.ui.navigation.feature.route.feature.CrossFeatureFragment {*;}
--keep class * implements ru.surfstudio.android.core.ui.navigation.feature.route.feature.CrossFeatureFragment
+-keep interface ru.android.rlrent.core.ui.navigation.feature.route.feature.CrossFeatureFragment {*;}
+-keep class * implements ru.android.rlrent.core.ui.navigation.feature.route.feature.CrossFeatureFragment

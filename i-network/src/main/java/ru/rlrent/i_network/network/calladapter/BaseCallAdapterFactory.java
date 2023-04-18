@@ -61,7 +61,7 @@ public abstract class BaseCallAdapterFactory extends CallAdapter.Factory {
     }
 
     /**
-     *@deprecated in version 0.2.1, replaced by {@link #onHttpException(HttpException, Call)}
+     * @deprecated in version 0.2.1, replaced by {@link #onHttpException(HttpException, Call)}
      */
     @Deprecated
     protected <R> Observable<R> onHttpException(HttpException e) {

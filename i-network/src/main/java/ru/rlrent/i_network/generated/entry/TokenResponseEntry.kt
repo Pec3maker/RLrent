@@ -3,6 +3,7 @@ package ru.rlrent.i_network.generated.entry
 import com.google.gson.annotations.SerializedName
 import ru.rlrent.domain.entity.LoginInfoEntity
 import ru.rlrent.i_network.error.exception.InvalidServerValuesResponse
+import ru.rlrent.i_network.network.Transformable
 
 
 /**
@@ -11,7 +12,7 @@ import ru.rlrent.i_network.error.exception.InvalidServerValuesResponse
 data class TokenResponseEntry(
     @SerializedName("access_token") private val accessToken: String? = null,
     @SerializedName("refresh_token") private val refreshToken: String? = null
-) : ru.rlrent.i_network.network.Transformable<LoginInfoEntity> {
+) : Transformable<LoginInfoEntity> {
 
     override fun transform(): LoginInfoEntity {
         if (accessToken == null) {

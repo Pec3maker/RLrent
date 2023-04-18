@@ -5,6 +5,6 @@ import ru.surfstudio.android.navigation.route.fragment.FragmentRoute
 class AuthFragmentRoute : FragmentRoute() {
 
     override fun getScreenClassPath(): String {
-        return "ru.surfstudio.practice.f_auth.AuthFragmentView"
+        return "ru.rlrent.f_auth.AuthFragmentView"
     }
 }

@@ -2,9 +2,6 @@ package ru.rlrent.i_auth
 
 import android.annotation.SuppressLint
 import io.reactivex.Completable
-import io.reactivex.Single
-import ru.rlrent.domain.auth.AuthUser
-import ru.rlrent.i_auth.dto.AuthBody
 import ru.rlrent.i_network.network.BaseNetworkInteractor
 import ru.rlrent.i_session.SessionChangedInteractor
 import ru.rlrent.i_token.TokenStorage
@@ -24,19 +21,19 @@ class AuthInteractor @Inject constructor(
     private val tokenStorage: TokenStorage
 ) : BaseNetworkInteractor(connectionQualityProvider) {
 
-    /**
-     * Авторизация пользователя
-     */
-    fun login(login: String, password: String): Single<AuthUser> {
-        return authRepository.login(
-            AuthBody(
-                login = login,
-                password = password
-            )
-        ).doOnSuccess { authUser ->
-            sessionChangedInteractor.onLogin(authUser)
-        }
-    }
+//    /**
+//     * Авторизация пользователя
+//     */
+//    fun login(login: String, password: String): Single<AuthUser> {
+//        return authRepository.login(
+//            AuthBody(
+//                login = login,
+//                password = password
+//            )
+//        ).doOnSuccess { authUser ->
+//            sessionChangedInteractor.onLogin(authUser)
+//        }
+//    }
 
     /**
      * Выход текущего авторизованного пользователя

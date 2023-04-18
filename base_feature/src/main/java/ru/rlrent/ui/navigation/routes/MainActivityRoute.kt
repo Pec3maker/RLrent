@@ -8,6 +8,6 @@ import ru.surfstudio.android.navigation.route.activity.ActivityRoute
 class MainActivityRoute : ActivityRoute() {
 
     override fun getScreenClassPath(): String {
-        return "ru.surfstudio.practice.f_main.MainActivityView"
+        return "ru.rlrent.f_main.MainActivityView"
     }
 }

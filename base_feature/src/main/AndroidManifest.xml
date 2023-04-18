@@ -2,15 +2,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="ru.android.rlrent.base_feature">
 
-    <!-- todo Исправить в соответствии с нуждами приложения.
-    Если приложение не использует бэкап (android:allowBackup="false"),
-    то backup_scheme не нужна -->
-
     <application
         android:name="ru.rlrent.application.app.App"
         android:allowBackup="true"
         android:fullBackupContent="@xml/backup_scheme"
-        android:label="@string/app_name"
+        android:label="RlRent"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning" />

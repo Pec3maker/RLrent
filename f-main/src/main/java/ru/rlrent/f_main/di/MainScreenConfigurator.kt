@@ -4,6 +4,14 @@ import android.content.Intent
 import dagger.Component
 import dagger.Module
 import dagger.Provides
+import ru.rlrent.f_main.MainActivityView
+import ru.rlrent.f_main.MainEvent
+import ru.rlrent.f_main.MainMiddleware
+import ru.rlrent.ui.activity.di.ActivityComponent
+import ru.rlrent.ui.activity.di.ActivityScreenConfigurator
+import ru.rlrent.ui.navigation.routes.MainActivityRoute
+import ru.rlrent.ui.screen_modules.ActivityScreenModule
+import ru.rlrent.ui.screen_modules.CustomScreenModule
 import ru.surfstudio.android.core.mvi.impls.event.hub.ScreenEventHub
 import ru.surfstudio.android.core.mvi.impls.event.hub.dependency.ScreenEventHubDependency
 import ru.surfstudio.android.core.mvi.impls.ui.binder.ScreenBinder
@@ -11,14 +19,6 @@ import ru.surfstudio.android.core.mvi.impls.ui.binder.ScreenBinderDependency
 import ru.surfstudio.android.core.mvp.configurator.BindableScreenComponent
 import ru.surfstudio.android.core.mvp.configurator.ScreenComponent
 import ru.surfstudio.android.dagger.scope.PerScreen
-import ru.rlrent.f_main.MainActivityView
-import ru.rlrent.f_main.MainEvent
-import ru.rlrent.f_main.MainMiddleware
-import ru.surfstudio.practice.ui.activity.di.ActivityComponent
-import ru.surfstudio.practice.ui.activity.di.ActivityScreenConfigurator
-import ru.surfstudio.practice.ui.navigation.routes.MainActivityRoute
-import ru.surfstudio.practice.ui.screen_modules.ActivityScreenModule
-import ru.surfstudio.practice.ui.screen_modules.CustomScreenModule
 
 /**
  * Конфигуратор главного экрана
@@ -26,18 +26,20 @@ import ru.surfstudio.practice.ui.screen_modules.CustomScreenModule
 internal class MainScreenConfigurator(intent: Intent) : ActivityScreenConfigurator(intent) {
 
     @PerScreen
-    @Component(dependencies = [ActivityComponent::class],
-            modules = [ActivityScreenModule::class, MainScreenModule::class])
+    @Component(
+        dependencies = [ActivityComponent::class],
+        modules = [ActivityScreenModule::class, MainScreenModule::class]
+    )
     interface MainScreenComponent : BindableScreenComponent<MainActivityView>
 
     @Module
     internal class MainScreenModule(route: MainActivityRoute) :
-            CustomScreenModule<MainActivityRoute>(route) {
+        CustomScreenModule<MainActivityRoute>(route) {
 
         @Provides
         @PerScreen
         fun provideEventHub(screenEventHubDependency: ScreenEventHubDependency) =
-                ScreenEventHub<MainEvent>(screenEventHubDependency, MainEvent::Lifecycle)
+            ScreenEventHub<MainEvent>(screenEventHubDependency, MainEvent::Lifecycle)
 
         @Provides
         @PerScreen
@@ -52,14 +54,14 @@ internal class MainScreenConfigurator(intent: Intent) : ActivityScreenConfigurat
 
     @Suppress("DEPRECATION")
     override fun createScreenComponent(
-            parentComponent: ActivityComponent,
-            activityScreenModule: ActivityScreenModule,
-            intent: Intent
+        parentComponent: ActivityComponent,
+        activityScreenModule: ActivityScreenModule,
+        intent: Intent
     ): ScreenComponent<*> {
         return DaggerMainScreenConfigurator_MainScreenComponent.builder()
-                .activityComponent(parentComponent)
-                .activityScreenModule(activityScreenModule)
-                .mainScreenModule(MainScreenModule(MainActivityRoute()))
-                .build()
+            .activityComponent(parentComponent)
+            .activityScreenModule(activityScreenModule)
+            .mainScreenModule(MainScreenModule(MainActivityRoute()))
+            .build()
     }
 }

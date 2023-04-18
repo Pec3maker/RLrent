@@ -20,7 +20,6 @@ import ru.surfstudio.android.navigation.observer.storage.file.FileRouteStorage
 import ru.surfstudio.android.navigation.observer.storage.file.FileScreenResultStorage
 import ru.surfstudio.android.navigation.provider.ActivityNavigationProvider
 import ru.surfstudio.android.navigation.provider.callbacks.ActivityNavigationProviderCallbacks
-import javax.inject.Named
 
 @Module
 class NavigationModule {

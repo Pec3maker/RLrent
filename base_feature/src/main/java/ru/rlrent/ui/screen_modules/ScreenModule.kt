@@ -2,6 +2,8 @@ package ru.rlrent.ui.screen_modules
 
 import dagger.Module
 import dagger.Provides
+import ru.rlrent.ui.mvi.di.EventHubModule
+import ru.rlrent.ui.mvi.di.NavigationMiddlewareModule
 import ru.surfstudio.android.connection.ConnectionProvider
 import ru.surfstudio.android.core.mvi.impls.ui.middleware.BaseMiddlewareDependency
 import ru.surfstudio.android.core.mvi.impls.ui.reactor.BaseReactorDependency
@@ -15,70 +17,68 @@ import ru.surfstudio.android.navigation.provider.ActivityNavigationProvider
 import ru.surfstudio.android.navigation.provider.FragmentProvider
 import ru.surfstudio.android.navigation.scope.ScreenScopeNavigationProvider
 import ru.surfstudio.android.rx.extension.scheduler.SchedulersProvider
-import ru.surfstudio.practice.ui.mvi.di.EventHubModule
-import ru.surfstudio.practice.ui.mvi.di.NavigationMiddlewareModule
 
 /**
  * Общий модуль для зависимостей Activity и Fragment
  */
 @Module(
-        includes = [
-            NavigationScreenModule::class,
-            NavigationMiddlewareModule::class,
-            EventHubModule::class
-        ]
+    includes = [
+        NavigationScreenModule::class,
+        NavigationMiddlewareModule::class,
+        EventHubModule::class
+    ]
 )
 abstract class ScreenModule {
 
     @PerScreen
     @Provides
     internal fun provideBaseDependency(
-            schedulersProvider: SchedulersProvider,
-            screenState: ScreenState,
-            eventDelegateManager: ScreenEventDelegateManager,
-            errorHandler: ErrorHandler,
-            connectionProvider: ConnectionProvider,
-            activityNavigator: ActivityNavigator
+        schedulersProvider: SchedulersProvider,
+        screenState: ScreenState,
+        eventDelegateManager: ScreenEventDelegateManager,
+        errorHandler: ErrorHandler,
+        connectionProvider: ConnectionProvider,
+        activityNavigator: ActivityNavigator
     ): BasePresenterDependency {
         return BasePresenterDependency(
-                schedulersProvider,
-                screenState,
-                eventDelegateManager,
-                errorHandler,
-                connectionProvider,
-                activityNavigator
+            schedulersProvider,
+            screenState,
+            eventDelegateManager,
+            errorHandler,
+            connectionProvider,
+            activityNavigator
         )
     }
 
     @PerScreen
     @Provides
     fun provideBaseMiddlewareDependency(
-            schedulersProvider: SchedulersProvider,
-            errorHandler: ErrorHandler,
-            screenState: ScreenState
+        schedulersProvider: SchedulersProvider,
+        errorHandler: ErrorHandler,
+        screenState: ScreenState
     ): BaseMiddlewareDependency = BaseMiddlewareDependency(
-            schedulersProvider,
-            errorHandler,
-            screenState
+        schedulersProvider,
+        errorHandler,
+        screenState
     )
 
     @PerScreen
     @Provides
     fun provideBaseReactorDependency(
-            errorHandler: ErrorHandler
+        errorHandler: ErrorHandler
     ): BaseReactorDependency = BaseReactorDependency(
-            errorHandler
+        errorHandler
     )
 
     @PerScreen
     @Provides
     fun provideScreenScopeNavigationProvider(
-            fragmentProvider: FragmentProvider,
-            activityNavigationProvider: ActivityNavigationProvider
+        fragmentProvider: FragmentProvider,
+        activityNavigationProvider: ActivityNavigationProvider
     ): ScreenScopeNavigationProvider {
         return ScreenScopeNavigationProvider(
-                fragmentProvider,
-                activityNavigationProvider
+            fragmentProvider,
+            activityNavigationProvider
         )
     }
 }

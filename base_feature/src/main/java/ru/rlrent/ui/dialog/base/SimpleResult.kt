@@ -1,7 +1,5 @@
 package ru.rlrent.ui.dialog.base
 
-import ru.surfstudio.practice.ui.dialog.base.SimpleResult.*
-
 /**
  * Результат работы простого диалога.
  *

@@ -25,15 +25,36 @@ fun <T : Any, V : View> V.performIfChanged(data: T?, action: V.(T) -> Unit) {
 /**
  * см. [performIfChanged]
  */
-fun <T1 : Any, T2 : Any, V : View> V.performIfChanged(data1: T1?, data2: T2?, action: V.(T1, T2) -> Unit) {
-    actionIfChanged(data1, data2, { _, _ -> if (data1 != null && data2 != null) action(data1, data2) })
+fun <T1 : Any, T2 : Any, V : View> V.performIfChanged(
+    data1: T1?,
+    data2: T2?,
+    action: V.(T1, T2) -> Unit
+) {
+    actionIfChanged(
+        data1,
+        data2,
+        { _, _ -> if (data1 != null && data2 != null) action(data1, data2) })
 }
 
 /**
  * см. [performIfChanged]
  */
-fun <T1 : Any, T2 : Any, T3 : Any, V : View> V.performIfChanged(data1: T1?, data2: T2?, data3: T3?, action: V.(T1, T2, T3) -> Unit) {
-    actionIfChanged(data1, data2, { _, _ -> if (data1 != null && data2 != null && data3 != null) action(data1, data2, data3) })
+fun <T1 : Any, T2 : Any, T3 : Any, V : View> V.performIfChanged(
+    data1: T1?,
+    data2: T2?,
+    data3: T3?,
+    action: V.(T1, T2, T3) -> Unit
+) {
+    actionIfChanged(
+        data1,
+        data2,
+        { _, _ ->
+            if (data1 != null && data2 != null && data3 != null) action(
+                data1,
+                data2,
+                data3
+            )
+        })
 }
 
 /**

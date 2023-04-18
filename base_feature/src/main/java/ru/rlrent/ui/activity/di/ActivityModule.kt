@@ -1,9 +1,11 @@
 package ru.rlrent.ui.activity.di
 
 import android.content.Context
-import android.content.SharedPreferences
 import dagger.Module
 import dagger.Provides
+import ru.android.rlrent.base_feature.BuildConfig
+import ru.rlrent.v_message_controller_top.IconMessageController
+import ru.rlrent.v_message_controller_top.TopSnackIconMessageController
 import ru.surfstudio.android.core.ui.event.ScreenEventDelegateManager
 import ru.surfstudio.android.core.ui.navigation.activity.navigator.ActivityNavigator
 import ru.surfstudio.android.core.ui.navigation.activity.navigator.ActivityNavigatorForActivity
@@ -15,13 +17,7 @@ import ru.surfstudio.android.core.ui.scope.ActivityPersistentScope
 import ru.surfstudio.android.core.ui.scope.PersistentScope
 import ru.surfstudio.android.core.ui.state.ActivityScreenState
 import ru.surfstudio.android.dagger.scope.PerActivity
-import ru.surfstudio.android.message.DefaultMessageController
-import ru.surfstudio.android.message.MessageController
 import ru.surfstudio.android.rxbus.RxBus
-import ru.rlrent.android.template.base_feature.BuildConfig
-import ru.surfstudio.practice.v_message_controller_top.IconMessageController
-import ru.surfstudio.practice.v_message_controller_top.TopSnackIconMessageController
-import javax.inject.Named
 
 /**
  * Модуль для dagger Activity Component
@@ -61,16 +57,16 @@ class ActivityModule(private val persistentScope: ActivityPersistentScope) {
     @Provides
     @PerActivity
     internal fun provideActivityNavigator(
-            activityProvider: ActivityProvider,
-            eventDelegateManager: ScreenEventDelegateManager,
-            splitFeatureInstaller: SplitFeatureInstaller,
-            isSplitFeatureModeOn: Boolean
+        activityProvider: ActivityProvider,
+        eventDelegateManager: ScreenEventDelegateManager,
+        splitFeatureInstaller: SplitFeatureInstaller,
+        isSplitFeatureModeOn: Boolean
     ): ActivityNavigator {
         return ActivityNavigatorForActivity(
-                activityProvider,
-                eventDelegateManager,
-                splitFeatureInstaller,
-                isSplitFeatureModeOn
+            activityProvider,
+            eventDelegateManager,
+            splitFeatureInstaller,
+            isSplitFeatureModeOn
         )
     }
 
@@ -83,7 +79,7 @@ class ActivityModule(private val persistentScope: ActivityPersistentScope) {
     @Provides
     @PerActivity
     internal fun provideIsSplitFeatureModeOn(): Boolean {
-        return !ru.rlrent.android.template.base_feature.BuildConfig.DEBUG
+        return !BuildConfig.DEBUG
     }
 
     @Provides
@@ -100,12 +96,6 @@ class ActivityModule(private val persistentScope: ActivityPersistentScope) {
 
     @Provides
     @PerActivity
-    internal fun provideMessageController(activityProvider: ActivityProvider): MessageController {
-        return DefaultMessageController(activityProvider)
-    }
-
-    @Provides
-    @PerActivity
     internal fun provideTopMessageController(activityProvider: ActivityProvider): IconMessageController {
         return TopSnackIconMessageController(activityProvider)
     }
@@ -113,8 +103,8 @@ class ActivityModule(private val persistentScope: ActivityPersistentScope) {
     @Provides
     @PerActivity
     internal fun provideTabFragmentNavigator(
-            activityProvider: ActivityProvider,
-            eventDelegateManager: ScreenEventDelegateManager
+        activityProvider: ActivityProvider,
+        eventDelegateManager: ScreenEventDelegateManager
     ): TabFragmentNavigator {
         return TabFragmentNavigator(activityProvider, eventDelegateManager)
     }

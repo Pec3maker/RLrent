@@ -1,16 +1,15 @@
 package ru.rlrent.f_splash
 
 import android.annotation.SuppressLint
-import android.os.Build
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.view.View
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import ru.android.rlrent.f_splash.R
+import ru.rlrent.f_splash.di.SplashScreenConfigurator
+import ru.rlrent.ui.mvi.view.BaseMviActivityView
 import ru.surfstudio.android.core.mvi.impls.event.hub.ScreenEventHub
-import ru.surfstudio.android.template.f_splash.R
 import ru.surfstudio.android.utilktx.util.SdkUtils
-import ru.surfstudio.practice.f_splash.di.SplashScreenConfigurator
-import ru.surfstudio.practice.ui.mvi.view.BaseMviActivityView
 import javax.inject.Inject
 
 @SuppressLint("CustomSplashScreen")

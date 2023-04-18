@@ -2,6 +2,10 @@ package ru.rlrent.application.app.di
 
 import android.content.Context
 import android.content.SharedPreferences
+import ru.rlrent.i_auth.AuthInteractor
+import ru.rlrent.i_initialization.InitializeAppInteractor
+import ru.rlrent.i_session.SessionChangedInteractor
+import ru.rlrent.ui.mvi.navigation.IntentChecker
 import ru.surfstudio.android.activity.holder.ActiveActivityHolder
 import ru.surfstudio.android.connection.ConnectionProvider
 import ru.surfstudio.android.core.ui.navigation.activity.navigator.GlobalNavigator
@@ -13,13 +17,6 @@ import ru.surfstudio.android.navigation.provider.ActivityNavigationProvider
 import ru.surfstudio.android.navigation.provider.callbacks.ActivityNavigationProviderCallbacks
 import ru.surfstudio.android.rx.extension.scheduler.SchedulersProvider
 import ru.surfstudio.android.shared.pref.NO_BACKUP_SHARED_PREF
-import ru.surfstudio.practice.i_auth.AuthInteractor
-import ru.surfstudio.practice.i_initialization.InitializeAppInteractor
-import ru.surfstudio.practice.i_projects.ProjectsInteractor
-import ru.surfstudio.practice.i_session.SessionChangedInteractor
-import ru.surfstudio.practice.i_storage.UserStorage
-import ru.surfstudio.practice.i_users.UsersInteractor
-import ru.surfstudio.practice.ui.mvi.navigation.IntentChecker
 import javax.inject.Named
 
 /**
@@ -33,7 +30,6 @@ interface AppProxyDependencies {
     fun activeActivityHolder(): ActiveActivityHolder
     fun connectionProvider(): ConnectionProvider
     fun sessionChangedInteractor(): SessionChangedInteractor
-    fun userStorage(): UserStorage
     fun schedulerProvider(): SchedulersProvider
     fun resourceProvider(): ResourceProvider
     fun globalNavigator(): GlobalNavigator
@@ -48,6 +44,4 @@ interface AppProxyDependencies {
     fun sharedPreferences(): SharedPreferences
 
     fun authInteractor(): AuthInteractor
-    fun usersInteractor(): UsersInteractor
-    fun projectsInteractor(): ProjectsInteractor
 }
