@@ -1,4 +1,4 @@
-package ru.rlrent.f_auth
+package ru.rlrent.f_auth.auth
 
 import androidx.annotation.StringRes
 import ru.surfstudio.android.core.mvi.impls.ui.reactor.BaseReactorDependency

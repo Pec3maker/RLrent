@@ -1,10 +1,14 @@
-package ru.rlrent.f_auth.di
+package ru.rlrent.f_auth.auth.di
 
 import android.os.Bundle
 import dagger.Component
 import dagger.Module
 import dagger.Provides
-import ru.rlrent.f_auth.*
+import ru.rlrent.f_auth.auth.AuthEvent
+import ru.rlrent.f_auth.auth.AuthFragmentView
+import ru.rlrent.f_auth.auth.AuthMiddleware
+import ru.rlrent.f_auth.auth.AuthReducer
+import ru.rlrent.f_auth.auth.AuthScreenStateHolder
 import ru.rlrent.ui.activity.di.ActivityComponent
 import ru.rlrent.ui.activity.di.FragmentScreenConfigurator
 import ru.rlrent.ui.navigation.routes.AuthFragmentRoute

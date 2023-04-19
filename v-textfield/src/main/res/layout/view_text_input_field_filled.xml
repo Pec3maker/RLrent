@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout"
+    tools:theme="@style/AppTheme.TextInputField">
+
+    <View
+        android:id="@+id/tf_background_view"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:duplicateParentState="true"
+        app:layout_constraintBottom_toBottomOf="@id/tf_input_container"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:background="@android:color/darker_gray" />
+
+    <TextView
+        android:id="@+id/tf_hint_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="8dp"
+        android:includeFontPadding="false"
+        android:duplicateParentState="true"
+        android:textAppearance="@style/Text.Regular.16"
+        app:layout_constraintEnd_toStartOf="@+id/tf_end_icon_btn"
+        app:layout_constraintStart_toStartOf="@id/tf_background_view"
+        app:layout_constraintTop_toTopOf="@id/tf_background_view"
+        app:layout_goneMarginEnd="16dp"
+        tools:text="Hint text" />
+
+    <FrameLayout
+        android:id="@+id/tf_input_container"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="5dp"
+        android:duplicateParentState="true"
+        android:focusableInTouchMode="true"
+        android:paddingBottom="6dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tf_background_view"
+        app:layout_constraintEnd_toStartOf="@id/tf_end_icon_btn"
+        app:layout_constraintStart_toStartOf="@+id/tf_background_view"
+        app:layout_constraintTop_toTopOf="@+id/tf_background_view"
+        app:layout_goneMarginEnd="16dp">
+
+        <include layout="@layout/layout_default_input_edit_text" />
+    </FrameLayout>
+
+    <ImageButton
+        android:id="@+id/tf_end_icon_btn"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginEnd="12dp"
+        android:background="?selectableItemBackgroundBorderless"
+        android:padding="4dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/tf_background_view"
+        app:layout_constraintEnd_toEndOf="@id/tf_background_view"
+        app:layout_constraintTop_toTopOf="@id/tf_background_view"
+        tools:src="@android:drawable/ic_menu_my_calendar"
+        tools:visibility="visible"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/tf_text_under_line_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:duplicateParentState="true"
+        app:layout_constraintEnd_toStartOf="@+id/tf_counter_tv"
+        app:layout_constraintHorizontal_bias="1"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tf_background_view"
+        app:layout_goneMarginEnd="16dp"
+        tools:text="Helper text"
+        tools:visibility="gone" />
+
+</merge>

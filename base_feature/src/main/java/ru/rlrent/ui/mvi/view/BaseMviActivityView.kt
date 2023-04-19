@@ -3,8 +3,7 @@ package ru.rlrent.ui.mvi.view
 import android.os.Bundle
 import android.os.PersistableBundle
 import androidx.annotation.CallSuper
-import androidx.core.view.WindowCompat
-import ru.rlrent.ui.util.setNavigationBarIconsGray
+import ru.rlrent.ui.util.edgeToEdge
 import ru.surfstudio.android.core.mvi.event.Event
 import ru.surfstudio.android.core.mvi.event.hub.owner.SingleHubOwner
 import ru.surfstudio.android.core.mvi.impls.event.hub.ScreenEventHub
@@ -32,13 +31,12 @@ abstract class BaseMviActivityView<S, E : Event> :
         viewRecreated: Boolean
     ) {
         initEdgeToEdge()
-        setNavigationBarIconsGray()
         initViews()
         bind()
     }
 
     private fun initEdgeToEdge() {
-        WindowCompat.setDecorFitsSystemWindows(window, false)
+        edgeToEdge {}
     }
 
     @CallSuper
