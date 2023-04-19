@@ -1,0 +1,38 @@
+<resources>
+
+    <style name="AppTheme.TextInputField">
+        <!--Цвет линии на фоне-->
+        <item name="tif_error_line_color">@color/transparent</item>
+        <item name="tif_focused_line_color">@color/transparent</item>
+        <item name="tif_disabled_line_color">@color/transparent</item>
+        <item name="tif_normal_line_color">@color/transparent</item>
+
+        <!--Цвет текста-->
+        <item name="tif_error_text_color">@color/main</item>
+        <item name="tif_focused_text_color">@color/main</item>
+        <item name="tif_disabled_text_color">@color/grey</item>
+        <item name="tif_normal_text_color">@color/main</item>
+
+        <!--Цвет подписи-->
+        <item name="tif_error_hint_color">@color/grey</item>
+        <item name="tif_focused_hint_color">@color/grey</item>
+        <item name="tif_disabled_hint_color">@color/grey</item>
+        <item name="tif_normal_hint_color">@color/grey</item>
+
+        <!--Цвет подсказки-->
+        <item name="tif_error_helper_color">@color/red</item>
+        <item name="tif_focused_helper_color">@color/grey</item>
+        <item name="tif_disabled_helper_color">@color/grey</item>
+        <item name="tif_normal_helper_color">@color/grey</item>
+
+        <item name="tif_material_style">Filled</item>
+
+        <!--Параметры подсказки для анимации-->
+        <item name="tif_hint_margin_top">4dp</item>
+        <item name="tif_hint_text_size_focused">14sp</item>
+        <item name="tif_hint_text_size_not_focused">18sp</item>
+
+        <!--Горизонтальные отступы для нижнего подчеркивания-->
+        <item name="tif_underlining_padding">16dp</item>
+    </style>
+</resources>

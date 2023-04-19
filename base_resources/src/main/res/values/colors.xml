@@ -4,6 +4,10 @@
     <color name="colorPrimaryDark">@color/primary_background</color>
     <color name="colorAccent">@color/blue</color>
 
+    <color name="secondaryDark">@color/saffron</color>
+    <color name="onSecondaryDark">@color/maroon</color>
+    <color name="onBackgroundLite">@color/gondola_70</color>
+
     <color name="main">@color/lucky_point</color>
     <color name="blue">@color/dodger_blue</color>
     <color name="blue_10">@color/dodger_blue_10</color>

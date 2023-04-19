@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EditText xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tf_default_input_et"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent"
+    android:duplicateParentState="true"
+    android:importantForAutofill="no"
+    android:inputType="text"
+    android:saveEnabled="false"
+    style="@style/Input"
+    android:includeFontPadding="false"
+    android:textAppearance="@style/Text.Subtitle"
+    tools:cursorVisible="true"
+    tools:ignore="LabelFor"
+    tools:text="Text" />

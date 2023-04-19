@@ -22,4 +22,12 @@
 
     <string name="state_error_btn">Обновить</string>
 
+    <!-- Auth Screen -->
+    <string name="auth_enter_credentials_text">Пожалуйста, введите имя\nпользователя и пароль</string>
+    <string name="auth_btn_next_text">Далее</string>
+    <string name="auth_text_field_login">Телефон или email</string>
+    <string name="auth_text_field_password">Пароль</string>
+    <string name="auth_text_not_registered">Не зарегистрированы?</string>
+    <string name="auth_text_policy">Политика конфиденциальности</string>
+
 </resources>

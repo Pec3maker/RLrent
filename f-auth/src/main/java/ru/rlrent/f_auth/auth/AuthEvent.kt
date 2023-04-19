@@ -1,4 +1,4 @@
-package ru.rlrent.f_auth
+package ru.rlrent.f_auth.auth
 
 import ru.rlrent.ui.mvi.navigation.event.NavCommandsComposition
 import ru.rlrent.ui.mvi.navigation.event.NavCommandsEvent
@@ -15,5 +15,7 @@ internal sealed class AuthEvent : Event {
 
     sealed class Input : AuthEvent() {
         data class SignIn(val login: String, val password: String) : Input()
+        object OpenPolicy : Input()
+        object OpenRegistrationScreen : Input()
     }
 }

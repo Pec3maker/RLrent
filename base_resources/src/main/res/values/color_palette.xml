@@ -5,6 +5,11 @@
     <color name="white_96">#F5FFFFFF</color>
     <color name="black">#0D0D0D</color>
 
+    <color name="saffron">#F0C133</color>
+    <color name="maroon">#3E2E00</color>
+    <color name="gondola">#343434</color>
+    <color name="gondola_70">#B3343434</color>
+
     <color name="lucky_point">#252849</color>
     <color name="lucky_point_45">#73252849</color>
     <color name="dodger_blue">#0094FF</color>
