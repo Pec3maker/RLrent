@@ -7,6 +7,8 @@
     <color name="secondaryDark">@color/saffron</color>
     <color name="onSecondaryDark">@color/maroon</color>
     <color name="onBackgroundLite">@color/gondola_70</color>
+    <color name="primaryContainerLight">@color/lavender_blue</color>
+    <color name="onPrimaryContainer">@color/rich_blue</color>
 
     <color name="main">@color/lucky_point</color>
     <color name="blue">@color/dodger_blue</color>

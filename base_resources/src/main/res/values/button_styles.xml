@@ -16,4 +16,9 @@
         <item name="android:textColor">@color/onSecondaryDark</item>
     </style>
 
+    <style name="Button.PrimaryLight">
+        <item name="android:background">@drawable/ripple_button_round_16_primary_container_light</item>
+        <item name="android:textColor">@color/onPrimaryContainer</item>
+    </style>
+
 </resources>

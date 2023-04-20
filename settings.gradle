@@ -13,6 +13,8 @@ include ":app",
         ":i-token",
         ":i-auth",
         ":f-auth",
+        ":f-map",
+        ":f-registration",
         ":f-main",
         ":f-splash"
 

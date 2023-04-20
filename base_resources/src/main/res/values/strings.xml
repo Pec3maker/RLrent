@@ -11,9 +11,10 @@
     <string name="bad_response_error_message">Произошла ошибка загрузки данных на экране. Попробуйте позже еще раз</string>
     <string name="unexpected_error_error_message">Непредвиденная ошибка</string>
     <string name="wrong_credentials_error_message">Неверные учетные данные</string>
+    <string name="already_exists_error_message">Пользователь уже существует</string>
     <string name="common_error_message">Произошла ошибка загрузки данных,\nпопробуйте обновить экран позже</string>
     <string name="pagination_footer_text">Что-то пошло не так.\nПопробуйте позже</string>
-
+    <string name="state_empty_text">Ничего нет</string>
     <string name="state_error_title">Что-то пошло не так!</string>
     <string name="state_error_message">Пожалуйста, повторите попытку</string>
 
@@ -24,10 +25,27 @@
 
     <!-- Auth Screen -->
     <string name="auth_enter_credentials_text">Пожалуйста, введите имя\nпользователя и пароль</string>
-    <string name="auth_btn_next_text">Далее</string>
+    <string name="auth_btn_enter_text">Войти</string>
     <string name="auth_text_field_login">Телефон или email</string>
     <string name="auth_text_field_password">Пароль</string>
     <string name="auth_text_not_registered">Не зарегистрированы?</string>
     <string name="auth_text_policy">Политика конфиденциальности</string>
+    <string name="validation_err_login">От 5 до 256 символов</string>
+    <string name="validation_err_phone">Должно быть 11 символов</string>
+    <string name="validation_empty_err">Поле не заполнено</string>
+    <string name="validation_err_password">От 8 до 256 символов</string>
+
+    <!-- Registration screen -->
+    <string name="registration_name_phone_credentials_text">Пожалуйста, введите имя\n пользователя и номер телефона</string>
+    <string name="registration_password_text">Теперь придумайте пароль</string>
+    <string name="registration_btn_next_text">Далее</string>
+    <string name="registration_btn_text">Зарегистрироваться</string>
+    <string name="registration_btn_back_text">Назад</string>
+    <string name="registration_name_text_field_hint">Придумайте имя пользователя</string>
+    <string name="registration_phone_text_field_hint">Ваш номер телефона</string>
+    <string name="registration_enter_password_hint">Введите пароль</string>
+    <string name="registration_enter_password_again_hint">Повторите пароль</string>
+    <string name="registration_passwords_is_not_equal">Пароли не совпадают</string>
+    <string name="registration_success_text">Успешно!</string>
 
 </resources>

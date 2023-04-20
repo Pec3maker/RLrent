@@ -7,31 +7,21 @@ import ru.surfstudio.android.shared.pref.SettingsUtil
 import javax.inject.Inject
 import javax.inject.Named
 
-private const val ACCESS_KEY_TOKEN = "ACCESS_TOKEN"
-private const val REFRESH_KEY_TOKEN = "REFRESH_TOKEN"
+private const val KEY_TOKEN = "KEY_TOKEN"
 
 @PerApplication
 class TokenStorage @Inject constructor(
     @Named(NO_BACKUP_SHARED_PREF) private val noBackupSharedPref: SharedPreferences
 ) {
 
-    var refreshToken: String
-        get() = SettingsUtil.getString(noBackupSharedPref, REFRESH_KEY_TOKEN)
-        set(value) = SettingsUtil.putString(noBackupSharedPref, REFRESH_KEY_TOKEN, value)
-
-    var accessToken: String
-        get() = SettingsUtil.getString(noBackupSharedPref, ACCESS_KEY_TOKEN)
-        set(value) = SettingsUtil.putString(noBackupSharedPref, ACCESS_KEY_TOKEN, value)
+    var token: String
+        get() = SettingsUtil.getString(noBackupSharedPref, KEY_TOKEN)
+        set(value) = SettingsUtil.putString(noBackupSharedPref, KEY_TOKEN, value)
 
     fun clearTokens() {
         SettingsUtil.putString(
             noBackupSharedPref,
-            ACCESS_KEY_TOKEN,
-            SettingsUtil.EMPTY_STRING_SETTING
-        )
-        SettingsUtil.putString(
-            noBackupSharedPref,
-            REFRESH_KEY_TOKEN,
+            KEY_TOKEN,
             SettingsUtil.EMPTY_STRING_SETTING
         )
     }

@@ -9,3 +9,9 @@ fun Fragment.addDefaultOnBackPressedCallback(onBackPressed: () -> Unit) {
         DefaultBackPressedCallback(onBackPressed)
     )
 }
+
+fun Fragment.hideKeyboardOutsideEditTextTouch() {
+    requireView().setOnClickListener {
+        requireActivity().hideKeyboard()
+    }
+}

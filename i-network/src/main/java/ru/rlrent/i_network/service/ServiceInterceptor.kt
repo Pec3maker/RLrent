@@ -24,7 +24,7 @@ class ServiceInterceptor @Inject constructor(private val tokenStorage: TokenStor
         }
 
         val headersBuilder = originalRequest.headers.newBuilder()
-            .add(HEADER_AUTH_KEY, tokenStorage.accessToken)
+            .add(HEADER_AUTH_KEY, tokenStorage.token)
 
         val request = originalRequest.newBuilder()
             .headers(headersBuilder.build())

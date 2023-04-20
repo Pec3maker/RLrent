@@ -1,10 +1,10 @@
 package ru.rlrent.ui.error
 
-import android.text.TextUtils
 import ru.android.rlrent.base_feature.R
 import ru.rlrent.i_network.error.HttpProtocolException
 import ru.rlrent.i_network.error.NetworkErrorHandler
 import ru.rlrent.i_network.error.NonAuthorizedException
+import ru.rlrent.i_network.network.error.HttpCodes
 import ru.rlrent.v_message_controller_top.IconMessageController
 import ru.surfstudio.android.core.ui.navigation.activity.navigator.GlobalNavigator
 import ru.surfstudio.android.dagger.scope.PerScreen
@@ -26,13 +26,11 @@ open class StandardErrorHandler @Inject constructor(
             return
         }
 
-        if (e.httpCode >= ru.rlrent.i_network.network.error.HttpCodes.CODE_500) {
+        if (e.httpCode >= HttpCodes.CODE_500) {
             messageController.show(R.string.server_error_message)
-        } else if (e.httpCode == ru.rlrent.i_network.network.error.HttpCodes.CODE_403) {
+        } else if (e.httpCode == HttpCodes.CODE_403) {
             messageController.show(R.string.forbidden_error_error_message)
-        } else if (!TextUtils.isEmpty(e.httpMessage)) {
-            Logger.e(e.httpMessage)
-        } else if (e.httpCode == ru.rlrent.i_network.network.error.HttpCodes.CODE_404) {
+        } else if (e.httpCode == HttpCodes.CODE_404) {
             messageController.show(R.string.server_error_not_found)
         } else {
             messageController.show(R.string.default_http_error_message)

@@ -8,7 +8,8 @@ apply from: '../commonAndroidDefaultConfig.gradle'
 android {
     buildTypes {
         qa {
-            buildConfigField "String", "BASE_URL", '"https://mobile-native-practice.surfstudio.ru/"'
+            buildConfigField "String", "BASE_URL", '"http://192.168.0.132:8083/"'
+            buildConfigField "String", "POLICY_URL", '"https://www.privacypolicies.com/live/5c6409f1-1964-44bb-8b24-a4ce212b4088"'
             multiDexEnabled true
             minifyEnabled true
             debuggable = true
@@ -17,13 +18,15 @@ android {
         }
 
         debug {
-            buildConfigField "String", "BASE_URL", '"https://mobile-native-practice.surfstudio.ru/"'
+            buildConfigField "String", "BASE_URL", '"http://192.168.0.132:8083/"'
+            buildConfigField "String", "POLICY_URL", '"https://www.privacypolicies.com/live/5c6409f1-1964-44bb-8b24-a4ce212b4088"'
             multiDexEnabled true
             debuggable = true
         }
 
         release {
-            buildConfigField "String", "BASE_URL", '"https://mobile-native-practice.surfstudio.ru/"'
+            buildConfigField "String", "BASE_URL", '"http://192.168.0.132:8083/"'
+            buildConfigField "String", "POLICY_URL", '"https://www.privacypolicies.com/live/5c6409f1-1964-44bb-8b24-a4ce212b4088"'
             minifyEnabled true
         }
     }

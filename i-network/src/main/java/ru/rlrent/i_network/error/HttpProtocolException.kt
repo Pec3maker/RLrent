@@ -5,8 +5,8 @@ import ru.rlrent.i_network.network.error.NetworkException
 
 private fun prepareMessage(httpMessage: String, code: Int, url: String): String {
     return " httpCode=" + code + "\n" +
-        ", httpMessage='" + httpMessage + "'" +
-        ", url='" + url + "'"
+            ", httpMessage='" + httpMessage + "'" +
+            ", url='" + url + "'"
 }
 
 /**
@@ -17,7 +17,7 @@ sealed class HttpProtocolException(
     val httpMessage: String,
     val httpCode: Int,
     url: String
-) : ru.rlrent.i_network.network.error.NetworkException(prepareMessage(httpMessage, httpCode, url), cause)
+) : NetworkException(prepareMessage(httpMessage, httpCode, url), cause)
 
 /**
  * Отсутствует авторизация(401)
@@ -33,6 +33,16 @@ class NonAuthorizedException(
  * Неверно введен лог/пас(400)
  */
 class WrongCredentialsException(
+    cause: HttpException,
+    httpMessage: String,
+    httpCode: Int,
+    url: String
+) : HttpProtocolException(cause, httpMessage, httpCode, url)
+
+/**
+ * Пользователь уже существует (302)
+ */
+class AlreadyExistsException(
     cause: HttpException,
     httpMessage: String,
     httpCode: Int,

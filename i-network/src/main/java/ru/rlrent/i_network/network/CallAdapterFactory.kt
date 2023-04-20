@@ -27,6 +27,7 @@ class CallAdapterFactory : ru.rlrent.i_network.network.calladapter.BaseCallAdapt
         val httpError: HttpProtocolException = when (e.code()) {
             HttpCodes.CODE_400 -> getApiException(e, url)
             HttpCodes.CODE_401 -> NonAuthorizedException(e, e.message(), e.code(), url)
+            HttpCodes.CODE_302 -> AlreadyExistsException(e, e.message(), e.code(), url)
             else -> OtherHttpException(e, e.code(), url)
         }
 

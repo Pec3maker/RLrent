@@ -4,7 +4,6 @@ import ru.android.rlrent.i_network.BuildConfig
 
 object ServerUrls {
     const val BASE_API_URL = BuildConfig.BASE_URL
-    const val TEST_API_URL = BuildConfig.BASE_URL
 }
 
 object UrlProjects {
