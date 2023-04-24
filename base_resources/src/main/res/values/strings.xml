@@ -23,6 +23,9 @@
 
     <string name="state_error_btn">Обновить</string>
 
+    <!-- Splash -->
+    <string name="splash_location_settings_rational_text">Для корректной работы приложения необходимо предоставить доступ к карте в настройках.</string>
+
     <!-- Auth Screen -->
     <string name="auth_enter_credentials_text">Пожалуйста, введите имя\nпользователя и пароль</string>
     <string name="auth_btn_enter_text">Войти</string>

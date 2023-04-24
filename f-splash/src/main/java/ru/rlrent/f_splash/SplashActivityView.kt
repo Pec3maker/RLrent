@@ -9,11 +9,13 @@ import ru.android.rlrent.f_splash.R
 import ru.rlrent.f_splash.di.SplashScreenConfigurator
 import ru.rlrent.ui.mvi.view.BaseMviActivityView
 import ru.surfstudio.android.core.mvi.impls.event.hub.ScreenEventHub
+import ru.surfstudio.android.notification.ui.notification.PushHandlingActivity
 import ru.surfstudio.android.utilktx.util.SdkUtils
 import javax.inject.Inject
 
 @SuppressLint("CustomSplashScreen")
-internal class SplashActivityView : BaseMviActivityView<SplashState, SplashEvent>() {
+internal class SplashActivityView : BaseMviActivityView<SplashState, SplashEvent>(),
+    PushHandlingActivity {
 
     @Inject
     override lateinit var hub: ScreenEventHub<SplashEvent>

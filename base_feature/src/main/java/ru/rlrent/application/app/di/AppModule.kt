@@ -2,16 +2,22 @@ package ru.rlrent.application.app.di
 
 import android.app.Application
 import android.content.Context
+import android.content.SharedPreferences
 import dagger.Module
 import dagger.Provides
+import ru.rlrent.ui.permissions.AppPermissionManager
 import ru.surfstudio.android.activity.holder.ActiveActivityHolder
 import ru.surfstudio.android.connection.ConnectionProvider
 import ru.surfstudio.android.core.ui.navigation.activity.navigator.GlobalNavigator
 import ru.surfstudio.android.core.ui.provider.resource.ResourceProvider
 import ru.surfstudio.android.core.ui.provider.resource.ResourceProviderImpl
 import ru.surfstudio.android.dagger.scope.PerApplication
+import ru.surfstudio.android.navigation.observer.ScreenResultObserver
+import ru.surfstudio.android.navigation.observer.executor.AppCommandExecutorWithResult
 import ru.surfstudio.android.rx.extension.scheduler.SchedulersProvider
 import ru.surfstudio.android.rx.extension.scheduler.SchedulersProviderImpl
+import ru.surfstudio.android.shared.pref.NO_BACKUP_SHARED_PREF
+import javax.inject.Named
 
 @Module
 class AppModule(
@@ -54,5 +60,21 @@ class AppModule(
     @PerApplication
     internal fun provideConnectionQualityProvider(context: Context): ConnectionProvider {
         return ConnectionProvider(context)
+    }
+
+    @Provides
+    @PerApplication
+    internal fun providePermissionManager(
+        activeActivityHolder: ActiveActivityHolder,
+        appCommandExecutorWithResult: AppCommandExecutorWithResult,
+        @Named(NO_BACKUP_SHARED_PREF) sharedPreferences: SharedPreferences,
+        screenResultObserver: ScreenResultObserver
+    ): AppPermissionManager {
+        return AppPermissionManager(
+            activeActivityHolder,
+            appCommandExecutorWithResult,
+            sharedPreferences,
+            screenResultObserver
+        )
     }
 }

@@ -14,4 +14,6 @@ sealed class SplashEvent : Event {
     data class Lifecycle(override var stage: LifecycleStage) : SplashEvent(), LifecycleEvent
     data class Navigation(override var event: NavCommandsEvent = NavCommandsEvent()) :
         SplashEvent(), NavCommandsComposition
+
+    object PermissionNotGranted : SplashEvent()
 }

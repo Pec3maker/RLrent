@@ -6,6 +6,7 @@ import ru.rlrent.i_auth.AuthInteractor
 import ru.rlrent.i_initialization.InitializeAppInteractor
 import ru.rlrent.i_session.SessionChangedInteractor
 import ru.rlrent.ui.mvi.navigation.IntentChecker
+import ru.rlrent.ui.permissions.AppPermissionManager
 import ru.surfstudio.android.activity.holder.ActiveActivityHolder
 import ru.surfstudio.android.connection.ConnectionProvider
 import ru.surfstudio.android.core.ui.navigation.activity.navigator.GlobalNavigator
@@ -39,6 +40,7 @@ interface AppProxyDependencies {
     fun navigationCallbacks(): ActivityNavigationProviderCallbacks
     fun activityNavigationProvider(): ActivityNavigationProvider
     fun screenResultObserver(): ScreenResultObserver
+    fun permissionManager(): AppPermissionManager
 
     @Named(NO_BACKUP_SHARED_PREF)
     fun sharedPreferences(): SharedPreferences

@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.yandex.mapkit.MapKitFactory
+import ru.android.rlrent.f_map.BuildConfig
 import ru.android.rlrent.f_map.R
 import ru.android.rlrent.f_map.databinding.FragmentMapBinding
 import ru.rlrent.f_map.di.MapScreenConfigurator
@@ -36,12 +38,30 @@ internal class MapFragmentView :
 
     override fun createConfigurator() = MapScreenConfigurator(arguments)
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        MapKitFactory.setApiKey(BuildConfig.MAPS_API_KEY)
+        MapKitFactory.initialize(requireContext())
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.fragment_map, container, false)
+    }
+
+    override fun onStart() {
+        super.onStart()
+        MapKitFactory.getInstance().onStart();
+        binding.mapView.onStart()
+    }
+
+    override fun onStop() {
+        binding.mapView.onStop();
+        MapKitFactory.getInstance().onStop();
+        super.onStop()
     }
 
     override fun render(state: MapState) {
