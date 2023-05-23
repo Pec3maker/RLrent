@@ -14,5 +14,9 @@ internal sealed class MapEvent : Event {
     data class Lifecycle(override var stage: LifecycleStage) : MapEvent(), LifecycleEvent
 
     sealed class Input : MapEvent() {
+        object ProfileClicked : Input()
+        object InfoClicked : Input()
+        object SettingsClicked : Input()
+        data class UpdateUserLocation(val lat: Double, val long: Double) : Input()
     }
 }

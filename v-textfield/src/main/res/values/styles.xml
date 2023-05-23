@@ -20,7 +20,7 @@
         <item name="tif_normal_hint_color">@color/grey</item>
 
         <!--Цвет подсказки-->
-        <item name="tif_error_helper_color">@color/red</item>
+        <item name="tif_error_helper_color">@color/error</item>
         <item name="tif_focused_helper_color">@color/grey</item>
         <item name="tif_disabled_helper_color">@color/grey</item>
         <item name="tif_normal_helper_color">@color/grey</item>

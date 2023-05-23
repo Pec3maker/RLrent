@@ -3,6 +3,9 @@ package ru.rlrent.ui.util
 import android.graphics.drawable.Drawable
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.Animation
+import android.view.animation.LinearInterpolator
+import android.view.animation.TranslateAnimation
 import androidx.annotation.DimenRes
 import androidx.annotation.DrawableRes
 import androidx.annotation.IntegerRes
@@ -100,6 +103,34 @@ fun View.fadeOutIf(
         if (visibility != View.VISIBLE) {
             fadeIn(defaultAlpha = defaultAlpha, duration = duration, endAction = endAction)
         }
+    }
+}
+
+fun View.slideInFromLeftIf(
+    duration: Long = AnimationUtil.ANIM_ENTERING,
+    interpolator: LinearInterpolator = LinearInterpolator()
+) {
+    if (!isVisible) {
+        visibility = View.VISIBLE
+        val animation = TranslateAnimation(-width.toFloat(), 0f, 0f, 0f)
+        animation.duration = duration
+        animation.interpolator = interpolator
+        startAnimation(animation)
+    } else {
+        val animation = TranslateAnimation(0f, -width.toFloat(), 0f, 0f)
+        animation.duration = duration
+        animation.interpolator = interpolator
+        animation.setAnimationListener(
+            object : Animation.AnimationListener {
+                override fun onAnimationStart(animation: Animation?) {}
+                override fun onAnimationEnd(animation: Animation?) {
+                    visibility = View.GONE
+                }
+
+                override fun onAnimationRepeat(animation: Animation?) {}
+            }
+        )
+        startAnimation(animation)
     }
 }
 

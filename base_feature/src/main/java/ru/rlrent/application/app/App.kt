@@ -2,7 +2,9 @@ package ru.rlrent.application.app
 
 import android.app.Application
 import android.os.StrictMode
+import com.yandex.mapkit.MapKitFactory
 import io.reactivex.plugins.RxJavaPlugins
+import ru.android.rlrent.base_feature.BuildConfig
 import ru.rlrent.application.app.di.AppInjector
 import ru.surfstudio.android.activity.holder.ActiveActivityHolder
 import ru.surfstudio.android.logger.Logger
@@ -24,6 +26,7 @@ class App : Application() {
         registerActiveActivityListener()
 
         registerNavigationProviderCallbacks()
+        MapKitFactory.setApiKey(BuildConfig.MAPS_API_KEY)
     }
 
     private fun registerNavigationProviderCallbacks() {
@@ -31,7 +34,6 @@ class App : Application() {
         val callbackProvider = provider as? ActivityNavigationProviderCallbacks ?: return
         registerActivityLifecycleCallbacks(callbackProvider)
     }
-
 
     private fun initVmPolicy() {
         if (SdkUtils.isAtLeastS()) {

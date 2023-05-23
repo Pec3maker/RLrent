@@ -31,6 +31,10 @@
         <item name="android:fontFamily">@font/sf_pro_text_bold</item>
     </style>
 
+    <style name="Text.Bold.14">
+        <item name="android:textSize">14sp</item>
+    </style>
+
     <style name="Text.Bold.20">
         <item name="android:textSize">20sp</item>
     </style>

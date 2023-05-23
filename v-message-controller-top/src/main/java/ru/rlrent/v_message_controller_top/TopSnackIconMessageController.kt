@@ -57,7 +57,7 @@ class TopSnackIconMessageController(private val activityProvider: ActivityProvid
         Alerter.hide()
 
         val activity = activityProvider.get()
-        val backgroundColorTintRes = backgroundColor ?: R.color.red
+        val backgroundColorTintRes = backgroundColor ?: R.color.error
         val backgroundColorTint =
             ContextCompat.getColor(activity as Context, backgroundColorTintRes)
         val backgroundRes = R.drawable.bg_snack

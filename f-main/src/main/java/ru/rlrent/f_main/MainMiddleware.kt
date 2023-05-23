@@ -5,7 +5,6 @@ import ru.rlrent.f_main.MainEvent.Navigation
 import ru.rlrent.i_session.SessionChangedInteractor
 import ru.rlrent.ui.mvi.navigation.base.NavigationMiddleware
 import ru.rlrent.ui.mvi.navigation.extension.replace
-import ru.rlrent.ui.navigation.routes.AuthFragmentRoute
 import ru.rlrent.ui.navigation.routes.MapFragmentRoute
 import ru.surfstudio.android.core.mvi.impls.ui.middleware.BaseMiddleware
 import ru.surfstudio.android.core.mvi.impls.ui.middleware.BaseMiddlewareDependency
@@ -28,10 +27,11 @@ internal class MainMiddleware @Inject constructor(
         }
 
     private fun navigate(): Navigation {
-        return if (sessionChangedInteractor.isLoggedIn) {
-            Navigation().replace(MapFragmentRoute())
-        } else {
-            Navigation().replace(AuthFragmentRoute())
-        }
+//        return if (sessionChangedInteractor.isLoggedIn) {
+//            Navigation().replace(MapFragmentRoute())
+//        } else {
+//            Navigation().replace(AuthFragmentRoute())
+//        }
+        return Navigation().replace(MapFragmentRoute())
     }
 }

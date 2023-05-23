@@ -51,4 +51,26 @@
     <string name="registration_passwords_is_not_equal">Пароли не совпадают</string>
     <string name="registration_success_text">Успешно!</string>
 
+    <!-- Settings screen -->
+    <string name="settings_screen_title">Настройки</string>
+    <string name="settings_app_view_title">Вид</string>
+    <string name="settings_dark_theme">Темная тема</string>
+
+    <!-- Profile screen -->
+    <string name="profile_screen_title">Профиль</string>
+    <string name="profile_bill_title">Баланс</string>
+    <string name="profile_stats_title">Статистика</string>
+    <string name="profile_trips_count">Поездок совершено</string>
+    <string name="profile_sum">Cумма поездок</string>
+    <string name="profile_registration_date">Дата регистрации</string>
+    <string name="profile_additional_info_title">Дополнительно</string>
+    <string name="profile_email_title">Добавьте email</string>
+    <string name="profile_change_password">Сменить пароль</string>
+    <string name="profile_additional_action">Прочее</string>
+    <string name="profile_exit_title">Выйти</string>
+    <string name="profile_delete_account">Удалить аккаунт</string>
+
+    <!-- Map screen -->
+    <string name="map_router_error">Не удалось построить маршрут</string>
+
 </resources>

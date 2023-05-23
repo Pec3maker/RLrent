@@ -5,6 +5,7 @@ import android.content.SharedPreferences
 import ru.rlrent.i_auth.AuthInteractor
 import ru.rlrent.i_initialization.InitializeAppInteractor
 import ru.rlrent.i_session.SessionChangedInteractor
+import ru.rlrent.i_storage.theme.ThemeTypeStorage
 import ru.rlrent.ui.mvi.navigation.IntentChecker
 import ru.rlrent.ui.permissions.AppPermissionManager
 import ru.surfstudio.android.activity.holder.ActiveActivityHolder
@@ -31,6 +32,7 @@ interface AppProxyDependencies {
     fun activeActivityHolder(): ActiveActivityHolder
     fun connectionProvider(): ConnectionProvider
     fun sessionChangedInteractor(): SessionChangedInteractor
+    fun themeTypeStorage(): ThemeTypeStorage
     fun schedulerProvider(): SchedulersProvider
     fun resourceProvider(): ResourceProvider
     fun globalNavigator(): GlobalNavigator

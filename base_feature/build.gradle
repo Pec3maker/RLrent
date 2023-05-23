@@ -8,6 +8,7 @@ dependencies {
 
     implementation project(":i-auth")
     implementation project(":i-network")
+    implementation project(":i-storage")
     implementation project(":i-token")
     implementation project(":i-initialization")
     implementation project(":i-session")
@@ -15,4 +16,5 @@ dependencies {
     api rxBinding2.core
     api rxBinding2.kotlin
     api androidX.swipeRefresh
+    api maps.mapKit
 }

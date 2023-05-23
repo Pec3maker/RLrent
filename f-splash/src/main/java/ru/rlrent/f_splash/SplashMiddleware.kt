@@ -6,6 +6,7 @@ import ru.android.rlrent.f_splash.R
 import ru.rlrent.f_splash.SplashEvent.Navigation
 import ru.rlrent.f_splash.SplashEvent.PermissionNotGranted
 import ru.rlrent.i_initialization.InitializeAppInteractor
+import ru.rlrent.i_storage.theme.ThemeChangedInteractor
 import ru.rlrent.ui.mvi.navigation.base.NavigationMiddleware
 import ru.rlrent.ui.mvi.navigation.extension.replace
 import ru.rlrent.ui.navigation.routes.MainActivityRoute
@@ -35,13 +36,17 @@ class SplashMiddleware @Inject constructor(
     private val navigationMiddleware: NavigationMiddleware,
     private val initializeAppInteractor: InitializeAppInteractor,
     private val permissionManager: AppPermissionManager,
-    private val resourceProvider: ResourceProvider
+    private val resourceProvider: ResourceProvider,
+    private val themeChangedInteractor: ThemeChangedInteractor
 ) : BaseMiddleware<SplashEvent>(baseMiddlewareDependency) {
 
     override fun transform(eventStream: Observable<SplashEvent>) =
         transformations(eventStream) {
             addAll(
-                onCreate() eventMap { handlePermission() },
+                onCreate() eventMap {
+                    themeChangedInteractor.activateSavedTheme()
+                    handlePermission()
+                },
                 Navigation::class decomposeTo navigationMiddleware,
                 PermissionNotGranted::class eventMapTo { handlePermission() }
             )

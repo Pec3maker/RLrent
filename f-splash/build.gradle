@@ -5,4 +5,5 @@ dependencies {
     implementation androidX.splash
     implementation project(":i-initialization")
     implementation project(":i-network")
+    implementation project(":i-storage")
 }

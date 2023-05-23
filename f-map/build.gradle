@@ -6,5 +6,4 @@ dependencies {
     implementation project(":i-network")
     implementation project(":i-session")
     implementation project(":v-textfield")
-    implementation maps.mapKit
 }

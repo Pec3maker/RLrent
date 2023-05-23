@@ -4,7 +4,9 @@ import ru.android.rlrent.base_feature.R
 import ru.rlrent.i_network.error.HttpProtocolException
 import ru.rlrent.i_network.error.NetworkErrorHandler
 import ru.rlrent.i_network.error.NonAuthorizedException
+import ru.rlrent.i_network.network.error.ConversionException
 import ru.rlrent.i_network.network.error.HttpCodes
+import ru.rlrent.i_network.network.error.NoInternetException
 import ru.rlrent.v_message_controller_top.IconMessageController
 import ru.surfstudio.android.core.ui.navigation.activity.navigator.GlobalNavigator
 import ru.surfstudio.android.dagger.scope.PerScreen
@@ -37,11 +39,11 @@ open class StandardErrorHandler @Inject constructor(
         }
     }
 
-    override fun handleNoInternetError(e: ru.rlrent.i_network.network.error.NoInternetException) {
+    override fun handleNoInternetError(e: NoInternetException) {
         messageController.show(R.string.no_internet_connection_error_message)
     }
 
-    override fun handleConversionError(e: ru.rlrent.i_network.network.error.ConversionException) {
+    override fun handleConversionError(e: ConversionException) {
         messageController.show(R.string.bad_response_error_message)
     }
 

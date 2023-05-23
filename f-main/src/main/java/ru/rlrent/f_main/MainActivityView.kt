@@ -1,5 +1,8 @@
 package ru.rlrent.f_main
 
+import android.os.Bundle
+import android.os.PersistableBundle
+import com.yandex.mapkit.MapKitFactory
 import ru.android.rlrent.f_main.R
 import ru.android.rlrent.f_main.databinding.ActivityMainBinding
 import ru.rlrent.f_main.di.MainScreenConfigurator
@@ -31,6 +34,25 @@ internal class MainActivityView : BaseMviActivityView<MainState, MainEvent>(),
         get() = R.id.main_fragment_container
 
     override fun createConfigurator() = MainScreenConfigurator(intent)
+
+    override fun onCreate(
+        savedInstanceState: Bundle?,
+        persistentState: PersistableBundle?,
+        viewRecreated: Boolean
+    ) {
+        super.onCreate(savedInstanceState, persistentState, viewRecreated)
+        MapKitFactory.initialize(this)
+    }
+
+    override fun onStart() {
+        super.onStart()
+        MapKitFactory.getInstance().onStart()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        MapKitFactory.getInstance().onStop()
+    }
 
     override fun initViews() {
     }

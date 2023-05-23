@@ -13,7 +13,7 @@
 
     <style name="Button.SecondaryDark">
         <item name="android:background">@drawable/ripple_button_round_16_secondary_dark</item>
-        <item name="android:textColor">@color/onSecondaryDark</item>
+        <item name="android:textColor">@color/onSecondary</item>
     </style>
 
     <style name="Button.PrimaryLight">

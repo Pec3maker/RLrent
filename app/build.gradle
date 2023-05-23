@@ -27,6 +27,8 @@ android {
 dependencies {
     implementation project(":f-auth")
     implementation project(":f-map")
+    implementation project(":f-settings")
+    implementation project(":f-profile")
     implementation project(":f-registration")
     implementation project(":f-main")
     implementation project(":f-splash")
