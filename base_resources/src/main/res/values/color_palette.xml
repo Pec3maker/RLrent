@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Сервис для именования цветов http://www.color-blindness.com/color-name-hue/ -->
+    <color name="white">#FFFFFF</color>
+    <color name="white_96">#F5FFFFFF</color>
+    <color name="black">#0D0D0D</color>
+    <color name="primary_background">@color/lavender</color>
+    <color name="secondary_background">@color/white</color>
+    <color name="blue">@color/dodger_blue</color>
+    <color name="dodger_blue">#0094FF</color>
+    <color name="lavender">#F3F7FD</color>
+
+    <color name="saffron">#F0C133</color>
+    <color name="saffron_30">#4DF0C133</color>
+    <color name="maroon">#3E2E00</color>
+    <color name="medium_turquoise">#4FDAD0</color>
+    <color name="british_racing_green">#003733</color>
+    <color name="gondola">#343434</color>
+    <color name="gondola_70">#B3343434</color>
+    <color name="lavender_blue">#DFE0FF</color>
+    <color name="tory_blue">#383D8F</color>
+    <color name="midnightBlue">#202578</color>
+    <color name="echo_blue">#A1AEC8</color>
+    <color name="spring_green">#00E384</color>
+    <color name="british_racing_green_2">#00391C</color>
+    <color name="lavender_blue_2">#BEC2FF</color>
+    <color name="lavender_blue_20">#33BEC2FF</color>
+    <color name="sapphire">#060865</color>
+    <color name="british_racing_green_3">#00522C</color>
+    <color name="rich_blue">#5156A9</color>
+    <color name="rich_blue_20">#335156A9</color>
+    <color name="lucky_point">#252849</color>
+    <color name="lucky_point_45">#73252849</color>
+    <color name="tropical_rain_forest">#006A63</color>
+    <color name="ghost">#CAC4D0</color>
+    <color name="bridesmaid">#F9DEDC</color>
+    <color name="bakers_chocolate">#410E0B</color>
+    <color name="baby_blue">#70F7EC</color>
+    <color name="sherpa_blue">#00504B</color>
+    <color name="dark_green">#00201D</color>
+    <color name="fire_brick">#B3261E</color>
+    <color name="watusi">#F2B8B5</color>
+    <color name="falu_red">#601410</color>
+    <color name="falu_red_2">#8C1D18</color>
+    <color name="mamba">#79747E</color>
+    <color name="grey_suit">#938F99</color>
+    <color name="screaminGreen">#50FFA4</color>
+    <color name="darkGreen">#00210E</color>
+    <color name="blue_chalk">#E7E0EC</color>
+    <color name="grape">#49454F</color>
+    <color name="zircon">#E0E3E3</color>
+    <color name="zircon_70">#B3E0E3E3</color>
+    <color name="watercourse">#006D3C</color>
+    <color name="clear_day">#FBFDFD</color>
+    <color name="clear_day_70">#B3FBFDFD</color>
+    <color name="cinder">#191C1D</color>
+    <color name="cinder_70">#B3191C1D</color>
+
+    <!-- Прозрачность цвета в процентах переведенная в шестнадцатиричный вид.
+  Часто требуются для добавления оттенков цветов
+      100% — FF
+      95% — F2
+      90% — E6
+      85% — D9
+      80% — CC
+      75% — BF
+      70% — B3
+      65% — A6
+      60% — 99
+      55% — 8C
+      50% — 80
+      45% — 73
+      40% — 66
+      35% — 59
+      30% — 4D
+      25% — 40
+      20% — 33
+      15% — 26
+      10% — 1A
+      5% — 0D
+      0% — 00
+  -->
+</resources>

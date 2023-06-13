@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/screen_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/screen_background"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:gravity="center"
+        android:text="@string/registration_name_phone_credentials_text"
+        android:textAppearance="@style/Text.Bold.20"
+        android:textColor="@color/white" />
+
+    <com.thapl.ml.v_textfield.TextInputField
+        android:id="@+id/name_tf"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
+        android:hint="@string/registration_name_text_field_hint"
+        android:inputType="text"
+        android:nextFocusDown="@id/phone_tf"
+        android:textAppearance="@style/Text.Subtitle" />
+
+    <com.thapl.ml.v_textfield.TextInputField
+        android:id="@+id/phone_tf"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="8dp"
+        android:hint="@string/registration_phone_text_field_hint"
+        android:inputType="phone"
+        android:textAppearance="@style/Text.Subtitle" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/enter_btn"
+        style="@style/Button.SecondaryDark"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginHorizontal="16dp"
+        android:text="@string/registration_btn_next_text" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/back_btn"
+        style="@style/Button.PrimaryLight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/registration_btn_back_text" />
+
+    <TextView
+        android:id="@+id/policy_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/auth_text_policy"
+        android:textAppearance="@style/Text.Regular.12"
+        android:textColor="@color/secondary_background" />
+
+</LinearLayout>

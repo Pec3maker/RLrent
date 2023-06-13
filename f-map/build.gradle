@@ -1,0 +1,12 @@
+apply from: '../commonFeatureModule.gradle'
+apply from: '../commonKaptModule.gradle'
+
+dependencies {
+    implementation project(":base_feature")
+    implementation project(":i-network")
+    implementation project(":i-session")
+    implementation project(":v-textfield")
+    implementation project(":i-auth")
+    implementation project(":i-transport")
+    implementation project(":i-trip")
+}

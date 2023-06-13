@@ -1,0 +1,17 @@
+.idea/*
+*.iml
+.gradle
+/local.properties
+/android-standard/androidStandard.properties
+.DS_Store
+/build
+*/build
+/captures
+.externalNativeBuild
+/temp
+_mirror
+*.jks
+/keystore/keystore_release.properties
+!.idea/codeStyles
+!.idea/inspectionProfiles
+mapping.txt

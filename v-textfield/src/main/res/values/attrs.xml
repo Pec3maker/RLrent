@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="textFieldStyle" format="reference" />
+
+    <declare-styleable name="TextInputField">
+        <attr name="android:inputType" />
+        <attr name="android:hint" format="string|reference" />
+        <attr name="android:text" format="string|reference" />
+        <attr name="android:textAppearance" format="reference" />
+
+        <attr name="tif_exceeding_max_length_mode" format="enum">
+            <enum name="Restrict" value="0" />
+            <enum name="Highlight" value="1" />
+        </attr>
+
+        <attr name="tif_helper_text" format="string|reference" />
+        <attr name="tif_error_text" format="string|reference" />
+
+        <attr name="tif_use_fixed_space_for_underline_text" format="boolean" />
+
+        <attr name="tif_state" format="enum">
+            <enum name="Normal" value="0" />
+            <enum name="Disabled" value="1" />
+            <enum name="Error" value="2" />
+        </attr>
+
+<!--        <attr name="view_state_enable" format="boolean" />-->
+        <attr name="view_state_error" format="boolean" />
+        <attr name="view_state_focused" format="boolean" />
+
+        <attr name="tif_disabled_box_color" format="color|reference" />
+        <attr name="tif_focused_box_color" format="color|reference" />
+        <attr name="tif_error_box_color" format="color|reference" />
+        <attr name="tif_normal_box_color" format="color|reference" />
+
+        <attr name="tif_end_image_button_icon" format="reference" />
+
+        <attr name="tif_disabled_line_color" format="color|reference" />
+        <attr name="tif_focused_line_color" format="color|reference" />
+        <attr name="tif_error_line_color" format="color|reference" />
+        <attr name="tif_normal_line_color" format="color|reference" />
+
+        <attr name="tif_disabled_hint_color" format="color|reference" />
+        <attr name="tif_focused_hint_color" format="color|reference" />
+        <attr name="tif_error_hint_color" format="color|reference" />
+        <attr name="tif_normal_hint_color" format="color|reference" />
+
+        <attr name="tif_disabled_text_color" format="color|reference" />
+        <attr name="tif_focused_text_color" format="color|reference" />
+        <attr name="tif_error_text_color" format="color|reference" />
+        <attr name="tif_normal_text_color" format="color|reference" />
+
+        <attr name="tif_disabled_helper_color" format="color|reference" />
+        <attr name="tif_focused_helper_color" format="color|reference" />
+        <attr name="tif_error_helper_color" format="color|reference" />
+        <attr name="tif_normal_helper_color" format="color|reference" />
+
+        <attr name="tif_hint_margin_top" format="dimension" />
+        <attr name="tif_hint_text_size_focused" format="dimension" />
+        <attr name="tif_hint_text_size_not_focused" format="dimension" />
+
+        <attr name="tif_underlining_padding" format="dimension" />
+
+        <attr name="tif_material_style" format="enum">
+            <enum name="Filled" value="0" />
+            <enum name="Outlined" value="1" />
+            <enum name="Plain" value="2" />
+        </attr>
+
+    </declare-styleable>
+</resources>

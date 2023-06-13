@@ -1,0 +1,13 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="ru.android.rlrent.base_feature">
+
+    <application
+        android:name="ru.rlrent.application.app.App"
+        android:allowBackup="true"
+        android:fullBackupContent="@xml/backup_scheme"
+        android:label="RlRent"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning" />
+</manifest>

@@ -1,0 +1,6 @@
+apply from: '../commonInteractorModule.gradle'
+
+dependencies {
+    implementation project(":i-token")
+    implementation project(":i-network")
+}

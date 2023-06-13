@@ -1,0 +1,26 @@
+apply from: 'config.gradle'
+
+include ":app",
+        ":base",
+        ":base_feature",
+        ":base_resources",
+        ":domain",
+        ":v-message-controller-top",
+        ":v-textfield",
+        ":i-initialization",
+        ":i-network",
+        ":i-session",
+        ":i-storage",
+        ":i-token",
+        ":i-auth",
+        ":i-transport",
+        ":i-trip",
+        ":f-auth",
+        ":f-map",
+        ":f-settings",
+        ":f-profile",
+        ":f-registration",
+        ":f-main",
+        ":f-splash"
+
+apply from: 'android-standard/androidStandardSettings.gradle'

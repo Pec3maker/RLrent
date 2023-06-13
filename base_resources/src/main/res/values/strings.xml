@@ -1,0 +1,82 @@
+<resources>
+    <string name="notification_channel_id" translatable="false">CHANNEL_ID</string>
+    <string name="notification_channel_name" translatable="false">RLRENT</string>
+
+    <string name="app_name" translatable="false">RlRent</string>
+    <string name="server_error_message">Произошла ошибка сервера. Попробуйте позже еще раз</string>
+    <string name="server_error_not_found">Произошла ошибка, данные не найдены. Попробуйте позже еще раз</string>
+    <string name="default_http_error_message">Произошла ошибка загрузки данных, возможно, не вся информация на экране актуальна</string>
+    <string name="forbidden_error_error_message">Доступ запрещен</string>
+    <string name="no_internet_connection_error_message">Не удалось загрузить данные. Проверьте соединение с интернетом и попробуйте еще раз</string>
+    <string name="bad_response_error_message">Произошла ошибка загрузки данных на экране. Попробуйте позже еще раз</string>
+    <string name="unexpected_error_error_message">Непредвиденная ошибка</string>
+    <string name="wrong_credentials_error_message">Неверные учетные данные</string>
+    <string name="already_exists_error_message">Пользователь уже существует</string>
+    <string name="common_error_message">Произошла ошибка загрузки данных,\nпопробуйте обновить экран позже</string>
+    <string name="pagination_footer_text">Что-то пошло не так.\nПопробуйте позже</string>
+    <string name="state_empty_text">Ничего нет</string>
+    <string name="state_error_title">Что-то пошло не так!</string>
+    <string name="state_error_message">Пожалуйста, повторите попытку</string>
+
+    <string name="state_error_no_internet_title">Нет соединения</string>
+    <string name="state_error_no_internet_message">Проверьте соединение\nс интернетом и обновите страницу</string>
+
+    <string name="state_error_btn">Обновить</string>
+
+    <!-- Splash -->
+    <string name="splash_location_settings_rational_text">Для корректной работы приложения необходимо предоставить доступ к карте в настройках.</string>
+
+    <!-- Auth Screen -->
+    <string name="auth_enter_credentials_text">Пожалуйста, введите имя\nпользователя и пароль</string>
+    <string name="auth_btn_enter_text">Войти</string>
+    <string name="auth_text_field_login">Телефон или email</string>
+    <string name="auth_text_field_password">Пароль</string>
+    <string name="auth_text_not_registered">Не зарегистрированы?</string>
+    <string name="auth_text_policy">Политика конфиденциальности</string>
+    <string name="validation_err_login">От 5 до 256 символов</string>
+    <string name="validation_err_phone">Должно быть 11 символов</string>
+    <string name="validation_empty_err">Поле не заполнено</string>
+    <string name="validation_err_password">От 8 до 256 символов</string>
+
+    <!-- Registration screen -->
+    <string name="registration_name_phone_credentials_text">Пожалуйста, введите имя\n пользователя и номер телефона</string>
+    <string name="registration_password_text">Теперь придумайте пароль</string>
+    <string name="registration_btn_next_text">Далее</string>
+    <string name="registration_btn_text">Зарегистрироваться</string>
+    <string name="registration_btn_back_text">Назад</string>
+    <string name="registration_name_text_field_hint">Придумайте имя пользователя</string>
+    <string name="registration_phone_text_field_hint">Ваш номер телефона</string>
+    <string name="registration_enter_password_hint">Введите пароль</string>
+    <string name="registration_enter_password_again_hint">Повторите пароль</string>
+    <string name="registration_passwords_is_not_equal">Пароли не совпадают</string>
+    <string name="registration_success_text">Успешно!</string>
+
+    <!-- Settings screen -->
+    <string name="settings_screen_title">Настройки</string>
+    <string name="settings_app_view_title">Вид</string>
+    <string name="settings_dark_theme">Темная тема</string>
+
+    <!-- Profile screen -->
+    <string name="profile_screen_title">Профиль</string>
+    <string name="profile_bill_title">Баланс</string>
+    <string name="profile_stats_title">Статистика</string>
+    <string name="profile_trips_count">Поездок совершено</string>
+    <string name="profile_sum">Cумма поездок</string>
+    <string name="profile_registration_date">Дата регистрации</string>
+    <string name="profile_additional_info_title">Дополнительно</string>
+    <string name="profile_email_title">Добавьте email</string>
+    <string name="profile_change_password">Сменить пароль</string>
+    <string name="profile_additional_action">Прочее</string>
+    <string name="profile_exit_title">Выйти</string>
+    <string name="profile_delete_account">Удалить аккаунт</string>
+
+    <!-- Map screen -->
+    <string name="map_router_error">Не удалось построить маршрут</string>
+    <string name="map_go_btn">Поехали!</string>
+    <string name="map_finish_btn">Завершить!</string>
+    <string name="start_trip_text">Поездка началась!</string>
+    <string name="error_start_trip_text">Не удалось начать поездку</string>
+    <string name="end_trip_text">Поездка завершилась!</string>
+    <string name="error_end_trip_text">Не удалось завершить поездку!</string>
+
+</resources>

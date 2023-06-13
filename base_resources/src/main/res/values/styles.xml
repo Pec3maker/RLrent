@@ -1,0 +1,72 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- светлая тема -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorSecondary">@color/colorAccent</item>
+
+        <item name="android:windowBackground">@color/secondary_background</item>
+        <item name="android:colorBackground">@color/secondary_background</item>
+
+        <item name="android:statusBarColor">@color/transparent</item>
+        <item name="android:windowLightStatusBar">true</item>
+
+        <item name="android:navigationBarColor">@color/transparent</item>
+
+        <item name="cardViewStyle">@style/CardView</item>
+        <item name="materialAlertDialogTheme">@style/AlertDialogTheme</item>
+        <item name="android:textAppearance">@style/Text</item>
+
+        <item name="android:enforceNavigationBarContrast" tools:targetApi="q">false</item>
+        <item name="android:enforceStatusBarContrast" tools:targetApi="q">false</item>
+    </style>
+
+    <!-- region Стиль AlertDialog  -->
+    <style name="AlertDialogTheme" parent="ThemeOverlay.MaterialComponents.MaterialAlertDialog">
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearance.MaterialComponents.Default</item>
+        <item name="materialAlertDialogTitleTextStyle">@style/AlertDialogTitleTextStyle</item>
+        <item name="materialAlertDialogBodyTextStyle">@style/AlertDialogBodyTextStyle</item>
+        <item name="buttonBarPositiveButtonStyle">@style/AlertDialogButtonStyle</item>
+        <item name="buttonBarNegativeButtonStyle">@style/AlertDialogButtonStyle</item>
+    </style>
+
+    <style name="AlertDialogTitleTextStyle" parent="MaterialAlertDialog.MaterialComponents.Title.Text">
+        <item name="android:textAppearance">@style/Text.Subtitle</item>
+        <item name="android:layout_marginBottom">1dp</item>
+    </style>
+
+    <style name="AlertDialogBodyTextStyle" parent="MaterialAlertDialog.MaterialComponents.Body.Text">
+        <item name="android:textColor">@color/main</item>
+        <item name="android:maxLines">3</item>
+    </style>
+
+    <style name="AlertDialogButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="shapeAppearanceOverlay">
+            @style/ShapeAppearance.MaterialComponents.MediumComponent
+        </item>
+        <item name="android:textAllCaps">true</item>
+        <item name="rippleColor">@color/outline</item>
+    </style>
+
+    <style name="ShapeAppearance.MaterialComponents.Default">
+        <item name="cornerSize">16dp</item>
+    </style>
+    <!-- endregion -->
+
+    <style name="Input" parent="Widget.AppCompat.EditText">
+        <item name="android:textCursorDrawable">@drawable/bg_text_field_cursor</item>
+    </style>
+
+    <style name="FAB" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">16dp</item>
+    </style>
+
+    <style name="Switch" parent="Theme.AppCompat.Light">
+        <item name="colorControlActivated">@color/onPrimaryContainer</item>
+        <item name="colorSwitchThumbNormal">@color/outline</item>
+        <item name="android:colorForeground">@color/outline</item>
+    </style>
+
+</resources>

@@ -1,0 +1,29 @@
+//Данный файл описывает типы сборок
+
+apply from: '../config.gradle'
+
+android {
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+            debuggable = true
+            applicationIdSuffix meta.debugVersionNameSuffix
+            resValue "string", "app_name", "RlRent"
+        }
+        qa {
+            minifyEnabled true
+            debuggable = true
+            applicationIdSuffix meta.qaVersionNameSuffix
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), '../proguard-rules.pro'
+            matchingFallbacks = ['release']
+            resValue "string", "app_name", "RlRent"
+        }
+        release {
+            multiDexEnabled false
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), '../proguard-rules.pro'
+            matchingFallbacks = ['release', 'qa']
+        }
+    }
+}

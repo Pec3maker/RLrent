@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.yandex.mapkit.mapview.MapView
+        android:id="@+id/map_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:movable="true" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_gravity="bottom">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/gps_icon_btn"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_gravity="end"
+            android:layout_margin="20dp"
+            android:backgroundTint="@color/tertiaryContainer"
+            android:src="@drawable/ic_navigation"
+            app:borderWidth="0dp"
+            app:layout_constraintBottom_toTopOf="@id/go_btn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:shapeAppearanceOverlay="@style/FAB"
+            app:tint="@color/onBackground" />
+
+        <ImageView
+            android:id="@+id/transport_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/go_btn"
+            style="@style/Button.SecondaryDark"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="5dp"
+            app:layout_constraintBottom_toBottomOf="@id/transport_iv"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/transport_iv" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:id="@+id/navigation_rail"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="@color/background"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:paddingHorizontal="26dp"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/profile_btn"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginBottom="40dp"
+            android:background="@drawable/ripple_button_round_16_transparent"
+            android:src="@drawable/ic_profile"
+            app:tint="@color/onBackground" />
+
+        <ImageView
+            android:id="@+id/settings_btn"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginBottom="40dp"
+            android:background="@drawable/ripple_button_round_16_transparent"
+            android:src="@drawable/ic_settings"
+            app:tint="@color/onBackground" />
+
+        <ImageView
+            android:id="@+id/info_btn"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:background="@drawable/ripple_button_round_16_transparent"
+            android:src="@drawable/ic_info"
+            app:tint="@color/onBackground" />
+
+    </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/open_nav_rail_btn"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_gravity="top|start"
+        android:layout_margin="20dp"
+        android:backgroundTint="@color/tertiaryContainer"
+        android:src="@drawable/ic_menu"
+        app:borderWidth="0dp"
+        app:shapeAppearanceOverlay="@style/FAB"
+        app:tint="@color/onBackground" />
+
+    <ru.surfstudio.android.custom.view.placeholder.PlaceHolderViewContainer
+        android:id="@+id/map_phv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</FrameLayout>

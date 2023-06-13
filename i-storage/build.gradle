@@ -1,0 +1,2 @@
+apply from: '../commonInteractorModule.gradle'
+apply from: '../commonKaptModule.gradle'
