@@ -1,6 +1,5 @@
 package ru.rlrent.i_auth.token
 
-import com.google.gson.Gson
 import okhttp3.Interceptor
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.Response
@@ -12,6 +11,7 @@ import ru.rlrent.i_network.network.error.HttpCodes
 import ru.rlrent.i_token.TokenStorage
 import ru.surfstudio.android.dagger.scope.PerApplication
 import javax.inject.Inject
+import javax.inject.Named
 
 private const val AUTHORIZATION_HEADER = "Authorization"
 private const val TOKEN_TYPE = "Bearer"
@@ -21,11 +21,10 @@ private val jsonMimeType = "application/json; charset=utf-8".toMediaType()
  * Интерцептор для авторизации при возникновении 401 кода в ответе.
  */
 @PerApplication
-class RefreshSessionInterceptor @Inject constructor(
+class TransportRefreshSessionInterceptor @Inject constructor(
     private val tokenStorage: TokenStorage,
-    private val baseUrl: BaseUrl,
-    private val invalidSessionListener: InvalidSessionListener,
-    private val gson: Gson
+    @Named("transportUrl") private val baseUrl: BaseUrl,
+    private val invalidSessionListener: InvalidSessionListener
 ) : Interceptor {
 
     override fun intercept(chain: Interceptor.Chain): Response {
@@ -49,6 +48,7 @@ class RefreshSessionInterceptor @Inject constructor(
         if (tokenStorage.token.isEmpty()) {
             throw AlreadyLogoutException()
         } else {
+            tokenStorage.clearTokens()
             throw SessionExpiredException()
         }
     }

@@ -11,8 +11,8 @@ data class User(
     val firstName: String = DOMAIN_EMPTY_STRING,
     val email: String = DOMAIN_EMPTY_STRING,
     val tripsCount: Int = 0,
-    val tripsCost: Int = 0,
+    val tripsCost: Double = 0.0,
     val registrationDate: String = DOMAIN_EMPTY_STRING,
     val phoneNumber: String = DOMAIN_EMPTY_STRING,
-    val bill: String = DOMAIN_EMPTY_STRING
+    val bill: Double = 0.0
 ) : Serializable

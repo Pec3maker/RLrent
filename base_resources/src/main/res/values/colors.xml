@@ -5,6 +5,7 @@
     <color name="colorAccent">@color/blue</color>
 
     <color name="primary">@color/rich_blue</color>
+    <color name="primary_20">@color/rich_blue_20</color>
     <color name="onPrimary">@color/white</color>
     <color name="primaryContainer">@color/lavender_blue</color>
     <color name="onPrimaryContainer">@color/sapphire</color>

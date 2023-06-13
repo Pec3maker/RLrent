@@ -5,7 +5,9 @@ import dagger.Provides
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
-import ru.rlrent.i_auth.token.RefreshSessionInterceptor
+import ru.rlrent.i_auth.token.AuthRefreshSessionInterceptor
+import ru.rlrent.i_auth.token.TransportRefreshSessionInterceptor
+import ru.rlrent.i_auth.token.TripRefreshSessionInterceptor
 import ru.rlrent.i_network.network.InvalidSessionListener
 import ru.rlrent.i_network.network.cache.SimpleCacheInterceptor
 import ru.rlrent.i_network.network.etag.EtagInterceptor
@@ -34,12 +36,59 @@ class OkHttpModule {
 
     @Provides
     @PerApplication
-    internal fun provideOkHttpClient(
+    @Named("AuthClient")
+    internal fun provideAuthOkHttpClient(
         @Named(DI_NAME_SERVICE_INTERCEPTOR) serviceInterceptor: Interceptor,
-        cacheInterceptor: SimpleCacheInterceptor,
+        @Named("AuthSimpleCacheInterceptor") cacheInterceptor: SimpleCacheInterceptor,
         etagInterceptor: EtagInterceptor,
         httpLoggingInterceptor: HttpLoggingInterceptor,
-        refreshSessionInterceptor: RefreshSessionInterceptor,
+        refreshSessionInterceptor: AuthRefreshSessionInterceptor,
+    ): OkHttpClient {
+        return OkHttpClient.Builder().apply {
+            connectTimeout(NETWORK_TIMEOUT, TimeUnit.SECONDS)
+            readTimeout(NETWORK_TIMEOUT, TimeUnit.SECONDS)
+            writeTimeout(NETWORK_TIMEOUT, TimeUnit.SECONDS)
+
+            addInterceptor(cacheInterceptor)
+            addInterceptor(etagInterceptor)
+            addInterceptor(serviceInterceptor)
+            addInterceptor(httpLoggingInterceptor)
+            addInterceptor(refreshSessionInterceptor)
+        }.build()
+    }
+
+    @Provides
+    @PerApplication
+    @Named("TripClient")
+    internal fun provideTripOkHttpClient(
+        @Named(DI_NAME_SERVICE_INTERCEPTOR) serviceInterceptor: Interceptor,
+        @Named("TransportSimpleCacheInterceptor") cacheInterceptor: SimpleCacheInterceptor,
+        etagInterceptor: EtagInterceptor,
+        httpLoggingInterceptor: HttpLoggingInterceptor,
+        refreshSessionInterceptor: TripRefreshSessionInterceptor,
+    ): OkHttpClient {
+        return OkHttpClient.Builder().apply {
+            connectTimeout(NETWORK_TIMEOUT, TimeUnit.SECONDS)
+            readTimeout(NETWORK_TIMEOUT, TimeUnit.SECONDS)
+            writeTimeout(NETWORK_TIMEOUT, TimeUnit.SECONDS)
+
+            addInterceptor(cacheInterceptor)
+            addInterceptor(etagInterceptor)
+            addInterceptor(serviceInterceptor)
+            addInterceptor(httpLoggingInterceptor)
+            addInterceptor(refreshSessionInterceptor)
+        }.build()
+    }
+
+    @Provides
+    @PerApplication
+    @Named("TransportClient")
+    internal fun provideTransportOkHttpClient(
+        @Named(DI_NAME_SERVICE_INTERCEPTOR) serviceInterceptor: Interceptor,
+        @Named("TransportSimpleCacheInterceptor") cacheInterceptor: SimpleCacheInterceptor,
+        etagInterceptor: EtagInterceptor,
+        httpLoggingInterceptor: HttpLoggingInterceptor,
+        refreshSessionInterceptor: TransportRefreshSessionInterceptor,
     ): OkHttpClient {
         return OkHttpClient.Builder().apply {
             connectTimeout(NETWORK_TIMEOUT, TimeUnit.SECONDS)

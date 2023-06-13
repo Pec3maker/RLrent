@@ -2,9 +2,10 @@ package ru.rlrent.f_map
 
 import io.reactivex.Observable
 import ru.android.rlrent.f_map.BuildConfig
-import ru.rlrent.domain.user.User
-import ru.rlrent.f_map.MapEvent.Input
-import ru.rlrent.f_map.MapEvent.Navigation
+import ru.rlrent.f_map.MapEvent.*
+import ru.rlrent.i_auth.AuthInteractor
+import ru.rlrent.i_transport.TransportInteractor
+import ru.rlrent.i_trip.TripInteractor
 import ru.rlrent.ui.mvi.navigation.base.NavigationMiddleware
 import ru.rlrent.ui.mvi.navigation.extension.replace
 import ru.rlrent.ui.mvi.navigation.extension.start
@@ -21,7 +22,10 @@ import javax.inject.Inject
 internal class MapMiddleware @Inject constructor(
     private val sh: MapScreenStateHolder,
     basePresenterDependency: BaseMiddlewareDependency,
-    private val navigationMiddleware: NavigationMiddleware
+    private val navigationMiddleware: NavigationMiddleware,
+    private val authInteractor: AuthInteractor,
+    private val transportInteractor: TransportInteractor,
+    private val tripInteractor: TripInteractor
 ) : BaseMiddleware<MapEvent>(basePresenterDependency) {
 
     private val state: MapState
@@ -31,26 +35,57 @@ internal class MapMiddleware @Inject constructor(
         transformations(eventStream) {
             addAll(
                 Navigation::class decomposeTo navigationMiddleware,
+                onResume() eventMap ::handleOnCreate,
                 Input.SettingsClicked::class mapTo ::navigateToSettings,
                 Input.InfoClicked::class mapTo ::navigateToInfo,
-                Input.ProfileClicked::class mapTo ::navigateToProfile
+                Input.ProfileClicked::class mapTo ::navigateToProfile,
+                Input.RetryClicked::class eventMapTo {
+                    merge(
+                        getUser(),
+                        getTransport(),
+                        getParkZones()
+                    )
+                },
+                Input.GoBtnClicked::class.filter { !state.tripStarted }.eventMap { startTrip() },
+                Input.GoBtnClicked::class.filter { state.tripStarted }.eventMap { finishTrip() }
             )
         }
 
+    private fun finishTrip(): Observable<out MapEvent> {
+        return tripInteractor.finishTrip()
+            .io()
+            .asRequestEvent(::FinishTrip)
+    }
+
+    private fun startTrip(): Observable<out MapEvent> {
+        return tripInteractor.startTrip(state.currentTransport.id)
+            .io()
+            .asRequestEvent(::StartTrip)
+    }
+
+    private fun handleOnCreate(event: MapEvent): Observable<out MapEvent> {
+        return merge(
+            getUser(),
+            getTransport(),
+            getParkZones()
+        )
+    }
+
+    private fun getParkZones(): Observable<out MapEvent> {
+        return transportInteractor.getZonesList()
+            .io()
+            .asRequestEvent(::GetZones)
+    }
+
+    private fun getTransport(): Observable<out MapEvent> {
+        return transportInteractor.getTransportList()
+            .io()
+            .asRequestEvent(::GetTransport)
+    }
+
     private fun navigateToProfile(event: Input.ProfileClicked): MapEvent {
         return Navigation().replace(
-            ProfileFragmentRoute(
-                user = User(
-                    imageUrl = "https://static.mk.ru/upload/entities/2023/01/28/00/articles/detailPicture/7e/7b/d4/49/b68a5fe5f0019d636eb8d941e06e5a8c.jpg",
-                    firstName = "Ваня",
-                    email = "vanya@gmail.com",
-                    tripsCost = 1550,
-                    tripsCount = 10,
-                    registrationDate = "12.02.2023",
-                    phoneNumber = "+7 989 832 68 89",
-                    bill = "1200"
-                )
-            ),
+            ProfileFragmentRoute(user = state.user),
             sourceTag = FragmentNavigationCommand.ACTIVITY_NAVIGATION_TAG
         )
     }
@@ -64,5 +99,11 @@ internal class MapMiddleware @Inject constructor(
 
     private fun navigateToInfo(event: Input.InfoClicked): MapEvent {
         return Navigation().start(OpenUrlRoute(BuildConfig.POLICY_URL))
+    }
+
+    private fun getUser(): Observable<out MapEvent> {
+        return authInteractor.getUser()
+            .io()
+            .asRequestEvent(::GetUser)
     }
 }

@@ -1,5 +1,8 @@
 package ru.rlrent.domain.transport
 
 enum class TransportCondition {
-    GOOD
+    GREAT,
+    GOOD,
+    SATISFYING,
+    NOT_SATISFYING
 }

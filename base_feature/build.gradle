@@ -7,6 +7,8 @@ dependencies {
     api project(":v-message-controller-top")
 
     implementation project(":i-auth")
+    implementation project(":i-transport")
+    implementation project(":i-trip")
     implementation project(":i-network")
     implementation project(":i-storage")
     implementation project(":i-token")

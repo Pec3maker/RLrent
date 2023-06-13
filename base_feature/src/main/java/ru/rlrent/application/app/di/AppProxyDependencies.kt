@@ -6,6 +6,8 @@ import ru.rlrent.i_auth.AuthInteractor
 import ru.rlrent.i_initialization.InitializeAppInteractor
 import ru.rlrent.i_session.SessionChangedInteractor
 import ru.rlrent.i_storage.theme.ThemeTypeStorage
+import ru.rlrent.i_transport.TransportInteractor
+import ru.rlrent.i_trip.TripInteractor
 import ru.rlrent.ui.mvi.navigation.IntentChecker
 import ru.rlrent.ui.permissions.AppPermissionManager
 import ru.surfstudio.android.activity.holder.ActiveActivityHolder
@@ -48,4 +50,6 @@ interface AppProxyDependencies {
     fun sharedPreferences(): SharedPreferences
 
     fun authInteractor(): AuthInteractor
+    fun transportInteractor(): TransportInteractor
+    fun tripInteractor(): TripInteractor
 }

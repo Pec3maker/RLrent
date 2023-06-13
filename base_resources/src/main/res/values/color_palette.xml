@@ -24,9 +24,11 @@
     <color name="spring_green">#00E384</color>
     <color name="british_racing_green_2">#00391C</color>
     <color name="lavender_blue_2">#BEC2FF</color>
+    <color name="lavender_blue_20">#33BEC2FF</color>
     <color name="sapphire">#060865</color>
     <color name="british_racing_green_3">#00522C</color>
     <color name="rich_blue">#5156A9</color>
+    <color name="rich_blue_20">#335156A9</color>
     <color name="lucky_point">#252849</color>
     <color name="lucky_point_45">#73252849</color>
     <color name="tropical_rain_forest">#006A63</color>

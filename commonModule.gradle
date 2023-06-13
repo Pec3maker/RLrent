@@ -8,7 +8,9 @@ apply from: '../commonAndroidDefaultConfig.gradle'
 android {
     buildTypes {
         qa {
-            buildConfigField "String", "BASE_URL", '"http://192.168.43.137:8083/"'
+            buildConfigField "String", "BASE_AUTH_URL", '"http://192.168.0.132:8083/"'
+            buildConfigField "String", "BASE_TRIP_URL", '"http://192.168.0.132:8082/"'
+            buildConfigField "String", "BASE_TRANSPORT_URL", '"http://192.168.0.132:8080/"'
             buildConfigField "String", "POLICY_URL", '"https://www.privacypolicies.com/live/5c6409f1-1964-44bb-8b24-a4ce212b4088"'
             buildConfigField "String", "MAPS_API_KEY", '"0c20ae76-f1eb-4b3b-84f5-e2501924d177"'
             //todo unsafe
@@ -20,7 +22,9 @@ android {
         }
 
         debug {
-            buildConfigField "String", "BASE_URL", '"http://192.168.43.137:8083/"'
+            buildConfigField "String", "BASE_AUTH_URL", '"http://192.168.0.132:8083/"'
+            buildConfigField "String", "BASE_TRIP_URL", '"http://192.168.0.132:8082/"'
+            buildConfigField "String", "BASE_TRANSPORT_URL", '"http://192.168.0.132:8080/"'
             buildConfigField "String", "POLICY_URL", '"https://www.privacypolicies.com/live/5c6409f1-1964-44bb-8b24-a4ce212b4088"'
             buildConfigField "String", "MAPS_API_KEY", '"0c20ae76-f1eb-4b3b-84f5-e2501924d177"'
             //todo unsafe
@@ -29,7 +33,9 @@ android {
         }
 
         release {
-            buildConfigField "String", "BASE_URL", '"http://192.168.43.137:8083/"'
+            buildConfigField "String", "BASE_AUTH_URL", '"http://192.168.0.132:8083/"'
+            buildConfigField "String", "BASE_TRIP_URL", '"http://192.168.0.132:8082/"'
+            buildConfigField "String", "BASE_TRANSPORT_URL", '"http://192.168.0.132:8080/"'
             buildConfigField "String", "POLICY_URL", '"https://www.privacypolicies.com/live/5c6409f1-1964-44bb-8b24-a4ce212b4088"'
             buildConfigField "String", "MAPS_API_KEY", '"0c20ae76-f1eb-4b3b-84f5-e2501924d177"'
             //todo unsafe

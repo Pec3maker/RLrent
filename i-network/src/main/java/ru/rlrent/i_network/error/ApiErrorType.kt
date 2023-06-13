@@ -11,7 +11,7 @@ enum class ApiErrorType(private val code: Int) {
 
     companion object {
 
-        fun getBy(code: Int?): ru.rlrent.i_network.error.ApiErrorType =
-            values().firstOrNull { error -> error.code == code } ?: ru.rlrent.i_network.error.ApiErrorType.UNKNOWN
+        fun getBy(code: Int?): ApiErrorType =
+            values().firstOrNull { error -> error.code == code } ?: UNKNOWN
     }
 }

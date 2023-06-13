@@ -3,6 +3,7 @@ package ru.rlrent.i_auth
 import io.reactivex.Completable
 import io.reactivex.Single
 import ru.rlrent.domain.auth.LoginInfo
+import ru.rlrent.domain.user.User
 import ru.rlrent.i_auth.dto.AuthBody
 import ru.rlrent.i_auth.dto.RegistrationBody
 import ru.rlrent.i_network.network.transform
@@ -34,4 +35,9 @@ class AuthRepository @Inject constructor(
      * Выход текущего авторизованного пользователя
      */
     fun logout(): Completable = authApi.logout()
+
+    /**
+     * Запрос текущего юзера
+     */
+    fun getUser(): Single<User> = authApi.getUser().transform()
 }

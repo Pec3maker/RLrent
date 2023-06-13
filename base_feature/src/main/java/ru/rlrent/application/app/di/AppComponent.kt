@@ -9,6 +9,8 @@ import ru.rlrent.application.network.di.NetworkModule
 import ru.rlrent.application.network.di.OkHttpModule
 import ru.rlrent.application.storage.di.SharedPrefModule
 import ru.rlrent.application.storage.di.StorageModule
+import ru.rlrent.application.transport.TransportModule
+import ru.rlrent.application.trip.TripModule
 import ru.rlrent.ui.navigation.di.NavigationModule
 import ru.surfstudio.android.dagger.scope.PerApplication
 
@@ -20,6 +22,8 @@ import ru.surfstudio.android.dagger.scope.PerApplication
         SharedPrefModule::class,
         StorageModule::class,
         AuthModule::class,
+        TripModule::class,
+        TransportModule::class,
         CacheModule::class,
         EtagModule::class,
         NetworkModule::class,

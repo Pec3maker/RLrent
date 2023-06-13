@@ -17,6 +17,7 @@ import ru.rlrent.f_profile.ProfileEvent.Input
 import ru.rlrent.f_profile.di.ProfileScreenConfigurator
 import ru.rlrent.ui.mvi.view.BaseMviFragmentView
 import ru.rlrent.ui.util.addDefaultOnBackPressedCallback
+import ru.rlrent.ui.util.convertToCustomDateFormat
 import ru.rlrent.ui.util.paddingTo
 import ru.rlrent.v_message_controller_top.IconMessageController
 import ru.surfstudio.android.core.mvi.impls.event.hub.ScreenEventHub
@@ -73,13 +74,13 @@ internal class ProfileFragmentView :
     override fun render(state: ProfileState) {
         with(binding) {
             loadImage(state.user.imageUrl, profileAvatar)
-            userName.text = state.user.firstName
+            userName.text = state.user.login
             phoneNumber.text = state.user.phoneNumber
             email.text = state.user.email
-            bill.text = state.user.bill
+            bill.text = state.user.bill.toString()
             tripsCount.text = state.user.tripsCount.toString()
             moneySum.text = state.user.tripsCost.toString()
-            registrationDate.text = state.user.registrationDate
+            registrationDate.text = state.user.registrationDate.convertToCustomDateFormat()
         }
     }
 

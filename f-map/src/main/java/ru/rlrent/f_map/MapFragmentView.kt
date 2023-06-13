@@ -6,11 +6,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import com.jakewharton.rxbinding2.view.clicks
 import com.yandex.mapkit.Animation
 import com.yandex.mapkit.MapKitFactory
 import com.yandex.mapkit.RequestPoint
 import com.yandex.mapkit.RequestPointType
+import com.yandex.mapkit.geometry.Circle
 import com.yandex.mapkit.geometry.Point
 import com.yandex.mapkit.layers.ObjectEvent
 import com.yandex.mapkit.map.*
@@ -25,12 +27,16 @@ import com.yandex.runtime.image.ImageProvider
 import ru.android.rlrent.f_map.R
 import ru.android.rlrent.f_map.databinding.FragmentMapBinding
 import ru.rlrent.domain.transport.TransportType
-import ru.rlrent.f_map.MapEvent.Input.*
+import ru.rlrent.f_map.MapEvent.*
 import ru.rlrent.f_map.di.MapScreenConfigurator
+import ru.rlrent.ui.mvi.placeholder.LoadStateView
+import ru.rlrent.ui.mvi.placeholder.loadstate.renderer.DefaultLoadStateRenderer
 import ru.rlrent.ui.mvi.view.BaseMviFragmentView
+import ru.rlrent.ui.util.performIfChanged
 import ru.rlrent.ui.util.slideInFromLeftIf
 import ru.rlrent.v_message_controller_top.IconMessageController
 import ru.surfstudio.android.core.mvi.impls.event.hub.ScreenEventHub
+import ru.surfstudio.android.core.mvp.loadstate.BaseLoadStateRenderer
 import ru.surfstudio.android.core.ui.navigation.feature.route.feature.CrossFeatureFragment
 import ru.surfstudio.android.core.ui.view_binding.viewBinding
 import javax.inject.Inject
@@ -43,7 +49,8 @@ internal class MapFragmentView :
     BaseMviFragmentView<MapState, MapEvent>(),
     CrossFeatureFragment,
     UserLocationObjectListener,
-    Session.RouteListener {
+    Session.RouteListener,
+    LoadStateView {
 
     @Inject
     override lateinit var hub: ScreenEventHub<MapEvent>
@@ -58,6 +65,12 @@ internal class MapFragmentView :
     lateinit var mc: IconMessageController
 
     private val binding: FragmentMapBinding by viewBinding(FragmentMapBinding::bind)
+
+    override val renderer: BaseLoadStateRenderer by lazy {
+        DefaultLoadStateRenderer(binding.mapPhv) {
+            Input.RetryClicked.emit()
+        }
+    }
 
     private lateinit var userLocationLayer: UserLocationLayer
     private var polylineMapObject: PolylineMapObject? = null
@@ -85,6 +98,8 @@ internal class MapFragmentView :
 
     @SuppressLint("MissingPermission")
     override fun initViews() {
+        ch.showMessage.bindTo { mc.show(it) }
+
         with(binding) {
             val mapKit = MapKitFactory.getInstance()
             userLocationLayer = mapKit.createUserLocationLayer(mapView.mapWindow)
@@ -94,15 +109,24 @@ internal class MapFragmentView :
             userLocationLayer.setObjectListener(this@MapFragmentView)
             moveCameraToUserLocation(Point(47.2357, 39.7015), INITIAL_ZOOM_LEVEL)
 
-            openNavRailBtn.setOnClickListener { binding.navigationRail.slideInFromLeftIf() }
-            profileBtn.clicks().emit(ProfileClicked)
-            infoBtn.clicks().emit(InfoClicked)
-            settingsBtn.clicks().emit(SettingsClicked)
-            gpsIconBtn.setOnClickListener { moveCameraToUserLocation() }
+            openNavRailBtn.setOnClickListener {
+                binding.navigationRail.slideInFromLeftIf()
+                Input.ScreenTouched.emit()
+            }
+            profileBtn.clicks().emit(Input.ProfileClicked)
+            infoBtn.clicks().emit(Input.InfoClicked)
+            settingsBtn.clicks().emit(Input.SettingsClicked)
+            settingsBtn.clicks().emit(Input.SettingsClicked)
+            gpsIconBtn.setOnClickListener {
+                moveCameraToUserLocation()
+                Input.ScreenTouched.emit()
+            }
+            goBtn.setOnClickListener { Input.GoBtnClicked.emit() }
         }
     }
 
     override fun render(state: MapState) {
+        binding.mapView.map.mapObjects.clear()
         mapObjectTapListeners.clear()
         polylineMapObject = null
 
@@ -120,12 +144,42 @@ internal class MapFragmentView :
                 )
             )
             placemark.userData = transport
-            val mapObjectTapListener = MapObjectTapListener { _, _ ->
+            val mapObjectTapListener = MapObjectTapListener { data, _ ->
                 buildRouteToPlacemark(placemark)
+                val transportData = data.userData as ru.rlrent.domain.transport.Transport
+                Input.TransportClicked(transport = transportData).emit()
                 true
             }
             mapObjectTapListeners.add(mapObjectTapListener)
             placemark.addTapListener(mapObjectTapListener)
+        }
+
+        // Отображение зон
+        state.availableZones.forEach { zone ->
+            val circle = binding.mapView.map.mapObjects.addCircle(
+                Circle(
+                    Point(zone.center.latitude, zone.center.longitude),
+                    zone.radius.toFloat()
+                ),
+                requireContext().getColor(R.color.primary_20),
+                2f,
+                requireContext().getColor(R.color.primary_20)
+            )
+            circle.userData = zone
+        }
+
+        binding.goBtn.isVisible = state.isBottomBarVisible
+        binding.goBtn.setText(if (!state.tripStarted) R.string.map_go_btn else R.string.map_finish_btn)
+        binding.transportIv.isVisible = state.isBottomBarVisible
+        binding.transportIv.setImageResource(state.mapTransport)
+
+        binding.mapPhv.performIfChanged(state.placeholderState) { phvState ->
+            renderLoadState(phvState)
+        }
+
+        binding.mapView.setOnTouchListener() { view, motionEvent ->
+            Input.ScreenTouched.emit()
+            true
         }
     }
 

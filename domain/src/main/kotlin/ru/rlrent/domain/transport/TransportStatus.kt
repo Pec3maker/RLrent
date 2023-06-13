@@ -1,6 +1,9 @@
 package ru.rlrent.domain.transport
 
 enum class TransportStatus {
+    BUSY,
     FREE,
-    BUSY
+    BROKEN,
+    DECOMMISSIONED,
+    MAINTENANCE_REQUIRE
 }
