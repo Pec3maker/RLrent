@@ -21,9 +21,6 @@ import javax.inject.Named
 const val DI_NAME_SERVICE_INTERCEPTOR = "DI_NAME_SERVICE_INTERCEPTOR"
 private const val NETWORK_TIMEOUT = 30L // sec
 
-/**
- * этот модуль вынесен отдельно для возможности замены его при интеграционном тестировании
- */
 @Module
 class OkHttpModule {
 

@@ -5,6 +5,7 @@ import io.reactivex.Single
 import ru.rlrent.domain.auth.LoginInfo
 import ru.rlrent.domain.user.User
 import ru.rlrent.i_auth.dto.AuthBody
+import ru.rlrent.i_auth.dto.PaymentBody
 import ru.rlrent.i_auth.dto.RegistrationBody
 import ru.rlrent.i_network.network.transform
 import ru.rlrent.i_network.service.BaseNetworkService
@@ -40,4 +41,9 @@ class AuthRepository @Inject constructor(
      * Запрос текущего юзера
      */
     fun getUser(): Single<User> = authApi.getUser().transform()
+
+    /**
+     * Оплата
+     */
+    fun makePayment(paymentBody: PaymentBody): Single<Unit> = authApi.makePayment(paymentBody)
 }

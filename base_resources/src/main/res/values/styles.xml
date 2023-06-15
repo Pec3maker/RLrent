@@ -69,4 +69,11 @@
         <item name="android:colorForeground">@color/outline</item>
     </style>
 
+    <!-- number picker style -->
+    <style name="AppTheme.Picker">
+        <item name="android:textColorPrimary">@color/main</item>
+        <item name="colorControlNormal">@color/colorAccent</item>
+        <item name="android:textAppearance">@style/Text.Regular.20</item>
+    </style>
+
 </resources>

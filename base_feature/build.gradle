@@ -19,4 +19,5 @@ dependencies {
     api rxBinding2.kotlin
     api androidX.swipeRefresh
     api maps.mapKit
+    api yoomoney.yoomoney
 }

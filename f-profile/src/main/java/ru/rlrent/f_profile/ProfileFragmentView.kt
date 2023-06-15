@@ -15,12 +15,16 @@ import ru.android.rlrent.f_profile.R
 import ru.android.rlrent.f_profile.databinding.FragmentProfileBinding
 import ru.rlrent.f_profile.ProfileEvent.Input
 import ru.rlrent.f_profile.di.ProfileScreenConfigurator
+import ru.rlrent.ui.mvi.placeholder.LoadStateView
+import ru.rlrent.ui.mvi.placeholder.loadstate.renderer.DefaultLoadStateRenderer
 import ru.rlrent.ui.mvi.view.BaseMviFragmentView
 import ru.rlrent.ui.util.addDefaultOnBackPressedCallback
 import ru.rlrent.ui.util.convertToCustomDateFormat
 import ru.rlrent.ui.util.paddingTo
+import ru.rlrent.ui.util.performIfChanged
 import ru.rlrent.v_message_controller_top.IconMessageController
 import ru.surfstudio.android.core.mvi.impls.event.hub.ScreenEventHub
+import ru.surfstudio.android.core.mvp.loadstate.BaseLoadStateRenderer
 import ru.surfstudio.android.core.ui.navigation.feature.route.feature.CrossFeatureFragment
 import ru.surfstudio.android.core.ui.view_binding.viewBinding
 import javax.inject.Inject
@@ -31,7 +35,8 @@ import javax.inject.Inject
  */
 internal class ProfileFragmentView :
     BaseMviFragmentView<ProfileState, ProfileEvent>(),
-    CrossFeatureFragment {
+    CrossFeatureFragment,
+    LoadStateView {
     @Inject
     override lateinit var hub: ScreenEventHub<ProfileEvent>
 
@@ -45,6 +50,12 @@ internal class ProfileFragmentView :
     lateinit var mc: IconMessageController
 
     private val binding: FragmentProfileBinding by viewBinding(FragmentProfileBinding::bind)
+
+    override val renderer: BaseLoadStateRenderer by lazy {
+        DefaultLoadStateRenderer(binding.profilePhv) {
+            Input.RetryClicked.emit()
+        }
+    }
 
     override fun createConfigurator() = ProfileScreenConfigurator(arguments)
 
@@ -68,6 +79,8 @@ internal class ProfileFragmentView :
         with(binding) {
             leftNavigationArrow.clicks().emit(Input.BackClicked)
             exitBtn.clicks().emit(Input.Logout)
+            addBillButton.clicks().emit(Input.BillClicked)
+            addEmailBtn.clicks().emit(Input.AddEmailBtnClicked)
         }
     }
 
@@ -81,6 +94,10 @@ internal class ProfileFragmentView :
             tripsCount.text = state.user.tripsCount.toString()
             moneySum.text = state.user.tripsCost.toString()
             registrationDate.text = state.user.registrationDate.convertToCustomDateFormat()
+
+            profilePhv.performIfChanged(state.placeholderState) { phvState ->
+                renderLoadState(phvState)
+            }
         }
     }
 

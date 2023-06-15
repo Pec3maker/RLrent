@@ -1,8 +1,10 @@
 package ru.rlrent.i_trip
 
 import io.reactivex.Single
+import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.Path
+import ru.rlrent.i_network.generated.urls.TripUrls.ALL_TRIPS_PATH
 import ru.rlrent.i_network.generated.urls.TripUrls.TRIP_FINISH_PATH
 import ru.rlrent.i_network.generated.urls.TripUrls.TRIP_START_PATH
 import ru.rlrent.i_trip.dto.TripResponse
@@ -17,4 +19,7 @@ interface TripApi {
 
     @POST(TRIP_FINISH_PATH)
     fun finishTrip(): Single<TripResponse>
+
+    @GET(ALL_TRIPS_PATH)
+    fun getTrips(): Single<List<TripResponse>>
 }

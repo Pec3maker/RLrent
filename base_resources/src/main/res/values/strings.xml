@@ -17,6 +17,7 @@
     <string name="state_empty_text">Ничего нет</string>
     <string name="state_error_title">Что-то пошло не так!</string>
     <string name="state_error_message">Пожалуйста, повторите попытку</string>
+    <string name="payment_success">Удалось оплатить</string>
 
     <string name="state_error_no_internet_title">Нет соединения</string>
     <string name="state_error_no_internet_message">Проверьте соединение\nс интернетом и обновите страницу</string>
@@ -69,6 +70,7 @@
     <string name="profile_additional_action">Прочее</string>
     <string name="profile_exit_title">Выйти</string>
     <string name="profile_delete_account">Удалить аккаунт</string>
+    <string name="profile_pay">Оплатить</string>
 
     <!-- Map screen -->
     <string name="map_router_error">Не удалось построить маршрут</string>
@@ -78,5 +80,6 @@
     <string name="error_start_trip_text">Не удалось начать поездку</string>
     <string name="end_trip_text">Поездка завершилась!</string>
     <string name="error_end_trip_text">Не удалось завершить поездку!</string>
+    <string name="choose_bill_amount_text">Выберите сумму к оплате</string>
 
 </resources>

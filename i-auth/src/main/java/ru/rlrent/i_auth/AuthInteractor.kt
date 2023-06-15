@@ -5,7 +5,9 @@ import io.reactivex.Completable
 import io.reactivex.Single
 import ru.rlrent.domain.auth.LoginInfo
 import ru.rlrent.domain.user.User
+import ru.rlrent.i_auth.dto.AmountBody
 import ru.rlrent.i_auth.dto.AuthBody
+import ru.rlrent.i_auth.dto.PaymentBody
 import ru.rlrent.i_auth.dto.RegistrationBody
 import ru.rlrent.i_network.network.BaseNetworkInteractor
 import ru.rlrent.i_session.SessionChangedInteractor
@@ -66,4 +68,14 @@ class AuthInteractor @Inject constructor(
      * Запрос текущего юзера
      */
     fun getUser(): Single<User> = authRepository.getUser()
+
+    /**
+     * Оплата
+     */
+    fun makePayment(paymentToken: String, amount: Float): Single<Unit> = authRepository.makePayment(
+        PaymentBody(
+            paymentToken = paymentToken,
+            amountBody = AmountBody(amount)
+        )
+    )
 }

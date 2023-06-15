@@ -27,4 +27,9 @@ class TripInteractor @Inject constructor(
      * Закончить поездку
      */
     fun finishTrip(): Single<Trip> = tripRepository.finishTrip()
+
+    /**
+     * Загрузить поездки
+     */
+    fun getTrips(): Single<List<Trip>> = tripRepository.getTrips()
 }

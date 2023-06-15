@@ -7,11 +7,6 @@ import ru.surfstudio.android.core.ui.scope.ActivityPersistentScope
 import ru.surfstudio.android.dagger.scope.PerActivity
 import ru.surfstudio.android.rxbus.RxBus
 
-/**
- * Интерфейс, объединяющий в себе все зависимости в скоупе [PerActivity]
- * Следует использовать в компоненте Activity и других компонентах более высоких уровней,
- * зависящих от него.
- */
 interface ActivityProxyDependencies {
     fun activityProvider(): ActivityProvider
     fun activityPersistentScope(): ActivityPersistentScope
